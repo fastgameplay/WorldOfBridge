@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &289950101
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -597,7 +597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a687fa233f9c58345afc6b90859c9533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CubeVariator: {fileID: 11400000, guid: 1e8997e1f00fba141bbce97505042e76, type: 2}
   cubePref: {fileID: 7422012084982153135, guid: a88261f36cf54d74da3e7fa31acbdf0e,
     type: 3}
   colors:
@@ -627,6 +626,7 @@ MonoBehaviour:
   - {r: 0, g: 1, b: 1, a: 1}
   baseColor: {r: 1, g: 1, b: 1, a: 0}
   TempQuantity: 0
+  sectionsAmount: 5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

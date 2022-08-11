@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CubeController : MonoBehaviour
 {
-    public CubeScriptableObject CubeVariator;
+    public CubeScaling CubeVariator;
     [SerializeField] private GameObject cubePref;
     [SerializeField] private Color[] colors;
     [SerializeField] private Color baseColor;
 
     public int TempQuantity;
 
-    const int sectionsAmount = 5;
+    public int sectionsAmount = 5;
     //TextController
     private Material topMaterial;
     private Material botMaterial;
@@ -35,6 +35,7 @@ public class CubeController : MonoBehaviour
 
     void Start()
     {
+        CubeVariator = new CubeScaling(sectionsAmount);
         quantity = 0;
         TempQuantity = 0;
         topObject = Instantiate(cubePref, Vector3.zero, Quaternion.Euler(Vector3.zero), transform);
@@ -56,6 +57,17 @@ public class CubeController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             Quantity -= 1;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Quantity += 1;
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Quantity -= 1;
+        }
+        if(Input.GetKeyDown(KeyCode.Space)){
+            CubeVariator = new CubeScaling(sectionsAmount);
         }
     }
     private void plus(int _amount){
