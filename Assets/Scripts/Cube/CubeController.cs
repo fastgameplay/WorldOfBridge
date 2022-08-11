@@ -8,7 +8,10 @@ public class CubeController : MonoBehaviour
     [SerializeField] private GameObject cubePref;
     [SerializeField] private Color[] colors;
     [SerializeField] private Color baseColor;
-    const int sectionsAmount = 4;
+
+    public int TempQuantity;
+
+    const int sectionsAmount = 5;
     //TextController
     private Material topMaterial;
     private Material botMaterial;
@@ -17,11 +20,13 @@ public class CubeController : MonoBehaviour
 
     private int quantity;
 
+    [SerializeField]
     public int Quantity{
         get { return quantity; }
         set { 
             quantity = value;
-            SetColors();
+            if (quantity < 0) quantity = 0;
+                SetColors();
             SetTransform();
         }
     }
@@ -31,15 +36,28 @@ public class CubeController : MonoBehaviour
     void Start()
     {
         quantity = 0;
+        TempQuantity = 0;
         topObject = Instantiate(cubePref, Vector3.zero, Quaternion.Euler(Vector3.zero), transform);
         botObject = Instantiate(cubePref, Vector3.zero, Quaternion.Euler(Vector3.zero), transform);
-        topMaterial = topObject.GetComponent<Material>();
-        botMaterial = botObject.GetComponent<Material>();
+        topMaterial = topObject.GetComponent<MeshRenderer>().material;
+        botMaterial = botObject.GetComponent<MeshRenderer>().material;
         topObject.transform.localPosition = Vector3.zero;
         botObject.transform.localPosition = new Vector3(0, -20, 0);
 
     }
 
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Quantity += 1;
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Quantity -= 1;
+        }
+    }
     private void plus(int _amount){
         
 
@@ -49,8 +67,15 @@ public class CubeController : MonoBehaviour
     }
 
     private void SetColors(){
-        topMaterial.color = colors[(quantity / sectionsAmount -1) % colors.Length]; //if quantity == 0 colors id = colors.length-1 (LastID)
-        botMaterial.color = colors[quantity / sectionsAmount % colors.Length]; //if quantity == 0 colors id = 0
+        if (quantity < sectionsAmount){
+            topMaterial.color = Color.white;
+            botMaterial.color = colors[1];
+        }
+        else{
+            topMaterial.color = colors[(quantity / sectionsAmount) % colors.Length];
+            botMaterial.color = colors[(quantity / sectionsAmount + 1) % colors.Length];
+        }
+
     }
 
 

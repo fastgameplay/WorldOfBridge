@@ -10,6 +10,6 @@ public class CubeScriptableObject : ScriptableObject{
         _topObject.transform.localScale = topSettings[variant].Scale;
 
         _botObject.transform.localPosition = botSettings[variant].Position;
-        _botObject.transform.localScale = botSettings[variant].Position;
+        _botObject.transform.localScale = botSettings[variant].Scale;
     }
 }
