@@ -1,17 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class CubeController : MonoBehaviour
 {
     public CubeScaling CubeVariator;
     [SerializeField] private GameObject cubePref;
     [SerializeField] private Color[] colors;
     [SerializeField] private Color baseColor;
+    [Range(1,8)]
+    [SerializeField] private int level;
+    [SerializeField] private int blocksPerLevel;
+    private int sectionsAmount;
+    private int maxAmount;
 
-    public int TempQuantity;
-
-    public int sectionsAmount = 5;
+    [Header("Texts")]
+    [SerializeField] TextMeshPro counterText;
+    [SerializeField] TextMeshPro levelText;
+    [SerializeField] TextMeshPro maxText;
+    bool isMaxAmount;
     //TextController
     private Material topMaterial;
     private Material botMaterial;
@@ -25,9 +32,13 @@ public class CubeController : MonoBehaviour
         get { return quantity; }
         set { 
             quantity = value;
+            
             if (quantity < 0) quantity = 0;
-                SetColors();
+            if (quantity > maxAmount) quantity = maxAmount;
+            
+            SetColors();
             SetTransform();
+            UpdateText();
         }
     }
 
@@ -35,9 +46,12 @@ public class CubeController : MonoBehaviour
 
     void Start()
     {
+        levelText.text = $"LVL {level}";
+        maxText.gameObject.SetActive(false);
+        maxAmount = level * blocksPerLevel;
+        sectionsAmount = level + 2;
         CubeVariator = new CubeScaling(sectionsAmount);
         quantity = 0;
-        TempQuantity = 0;
         topObject = Instantiate(cubePref, Vector3.zero, Quaternion.Euler(Vector3.zero), transform);
         botObject = Instantiate(cubePref, Vector3.zero, Quaternion.Euler(Vector3.zero), transform);
         topMaterial = topObject.GetComponent<MeshRenderer>().material;
@@ -52,11 +66,11 @@ public class CubeController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Quantity += 1;
+            level += 1;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            Quantity -= 1;
+            level -= 1;
         }
         if (Input.GetMouseButtonDown(0))
         {
@@ -67,6 +81,11 @@ public class CubeController : MonoBehaviour
             Quantity -= 1;
         }
         if(Input.GetKeyDown(KeyCode.Space)){
+            levelText.text = $"LVL {level}";
+            maxAmount = level * blocksPerLevel;
+            if (quantity > maxAmount) quantity = maxAmount;
+            sectionsAmount = level + 2;
+            UpdateText();
             CubeVariator = new CubeScaling(sectionsAmount);
         }
     }
@@ -91,8 +110,26 @@ public class CubeController : MonoBehaviour
     }
 
 
+
     private void SetTransform(){
         CubeVariator.SetCubes(topObject, botObject, quantity % sectionsAmount);
+    }
+
+    private void UpdateText(){
+        counterText.text = quantity.ToString();
+        if(quantity == maxAmount && !isMaxAmount){
+            isMaxAmount = true;
+            maxText.gameObject.SetActive(true);
+            counterText.color = Color.red;
+            levelText.color = Color.red;
+        }
+        else if (quantity != maxAmount && isMaxAmount){
+            isMaxAmount = false;
+            maxText.gameObject.SetActive(false);
+            counterText.color = Color.white;
+            levelText.color = Color.green;
+
+        }
     }
 }
 
