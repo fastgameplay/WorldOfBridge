@@ -8,6 +8,8 @@ public class WorldSettingsScriptable : ScriptableObject{
     [SerializeField] private float minLength;
     [SerializeField] private float maxLength;
     public float GapLength;
+    public float StartLength;
+    public float StartPos;
     public float Length { get { return Random.Range(minLength, maxLength); } }
     
     [Header("Width")]
