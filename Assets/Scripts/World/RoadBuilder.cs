@@ -8,11 +8,8 @@ public class RoadBuilder : MonoBehaviour
     private Dictionary<BiomeType, BiomeScriptable> biomes;
 
     private Quaternion standartQuaternion;
-    public void SetBuilder (GameObject _startPref, GameObject _roadPref, GameObject _gapPref, GameObject _finishPref, Dictionary<BiomeType,BiomeScriptable> _biomes){
-        prefs.Add(RoadType.Start, _startPref);
-        prefs.Add(RoadType.Road, _roadPref);
-        prefs.Add(RoadType.Gap, _gapPref);
-        prefs.Add(RoadType.Finish, _finishPref);
+    public void SetBuilder (Dictionary<RoadType, GameObject> _prefs, Dictionary<BiomeType,BiomeScriptable> _biomes){
+        prefs = _prefs;
         biomes = _biomes;
         standartQuaternion = Quaternion.Euler(new Vector3(90, 0, 0));
     }
@@ -39,7 +36,7 @@ public class RoadBuilder : MonoBehaviour
         RoadObj.transform.localPosition = Vector3.zero;
         RoadObj.transform.localScale = road.Scale;
         RoadObj.GetComponent<MeshRenderer>().material.color = biomes[road.Biome].GroundColor;
-        biomes[road.Biome].SetBiome(road.Scale, holder.transform);
+        biomes[road.Biome].SetBiome(road.StartPos, road.EndPos, road.Scale, holder.transform);
         
         return holder;
         
@@ -49,4 +46,6 @@ public class RoadBuilder : MonoBehaviour
         obj.transform.localScale = road.Scale;
         return obj;
     }
+
+    
 }
