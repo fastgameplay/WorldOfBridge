@@ -23,9 +23,8 @@ public class BiomeScriptable : ScriptableObject {
         Debug.Log("START END POS " + startPos + " : " + endPos);
         float i = startPos;
         while( i < endPos) {
-            i += ObsticleSize;
             Obsticles[0].Spawn(i, scale.x, parent, ObsticleSize);
-            i += ObsticleSize;
+            i += ObsticleSize*2;
         }
 
     }
