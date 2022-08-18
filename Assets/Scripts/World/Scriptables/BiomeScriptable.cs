@@ -3,26 +3,31 @@ using UnityEngine;
 
 public class BiomeScriptable : ScriptableObject {
 
-    public BiomeType Type { get { return type; } }
-    [SerializeField] private BiomeType type;
+    public BiomeType Type;
 
-    public Color GroundColor { get { return GroundColor; } }
-    [SerializeField] private Color groundColor;
+    public Color GroundColor;
     
     [SerializeField] private ObsticleScriptable[] Obsticles;
     [SerializeField] private GameObject Coin;
-    [Range(1,5)]
+    [Range(0,5)]
     [SerializeField] private float Offset;
-    [Range(1,2.5f)]
+    [Range(0,2.5f)]
     [SerializeField] private float ObsticleSize;
 
 
 
-    public void SetBiome(float minPosition, float maxPosition,Vector3 scale, Transform parent) {
+    public void SetBiome(Vector3 scale, Transform parent) {
+        float startPos = (-scale.y)  + Offset;
+        float endPos = (scale.y) - Offset;
         scale /= 2;
-        for (float i = minPosition + Offset; i < maxPosition - Offset; i+= ObsticleSize){
+        Debug.Log("START END POS " + startPos + " : " + endPos);
+        float i = startPos;
+        while( i < endPos) {
+            i += ObsticleSize;
             Obsticles[0].Spawn(i, scale.x, parent, ObsticleSize);
+            i += ObsticleSize;
         }
+
     }
 
 }

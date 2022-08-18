@@ -29,7 +29,7 @@ public class RoadFactory
         rd.Width = context.WorldSettings.Width;
         rd.Type = RoadType.Road;
         rd.StartPos = startPos;
-        
+        //TODO : Change To RandomBiome;
         rd.Biome = BiomeType.Forest;
         return rd;
     }

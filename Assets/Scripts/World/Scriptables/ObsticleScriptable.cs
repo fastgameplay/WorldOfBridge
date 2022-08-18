@@ -9,7 +9,7 @@ public class ObsticleScriptable : ScriptableObject {
     public bool IsMovable;
     [Range(0,2)]
     public float RotationSpeed;
-    public GameObject Spawn(float zPosition, float distance, Transform parent, float obsticleSize){
+    public GameObject Spawn(float xPosition, float distance, Transform parent, float obsticleSize){
         GameObject holder = new GameObject();
         float split = 360 / Quantity;
         for (int i = 0; i <= Quantity; i++){
@@ -20,7 +20,7 @@ public class ObsticleScriptable : ScriptableObject {
                 holder.transform); //parent
         }
         holder.transform.parent = parent;
-        holder.transform.localPosition = new Vector3(0, 0, zPosition);
+        holder.transform.localPosition = new Vector3(0, xPosition, 0);
         if (IsMovable) holder.AddComponent<ObsticleMovement>().SetUp(randomSpeed(RotationSpeed));
         return holder;
     }

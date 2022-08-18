@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fb6b8f329162f4e88367faa4d32ba1, type: 3}
   m_Name: Biome
   m_EditorClassIdentifier: 
+  Type: 1
+  GroundColor: {r: 1, g: 0, b: 0, a: 1}
   Obsticles:
   - {fileID: 11400000, guid: 97e2134413e3bf94487d03338e771c96, type: 2}
   Coin: {fileID: 0}
-  GroundColor: {r: 1, g: 0.7523065, b: 0, a: 1}
-  Type: 1
+  Offset: 0.5
+  ObsticleSize: 1

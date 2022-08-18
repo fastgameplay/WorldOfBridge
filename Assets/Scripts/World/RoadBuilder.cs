@@ -36,7 +36,7 @@ public class RoadBuilder : MonoBehaviour
         RoadObj.transform.localPosition = Vector3.zero;
         RoadObj.transform.localScale = road.Scale;
         RoadObj.GetComponent<MeshRenderer>().material.color = biomes[road.Biome].GroundColor;
-        biomes[road.Biome].SetBiome(road.StartPos, road.EndPos, road.Scale, holder.transform);
+        biomes[road.Biome].SetBiome(road.Scale, holder.transform);
         
         return holder;
         
