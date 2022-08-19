@@ -7,15 +7,15 @@ public class TouchInput : MonoBehaviour
     public bool DoubleTap { get { return doubleTap; } }
     public bool IsStatic { get { return isStatic; } }
     
-    public float Horizontal { get { return horizontal; } }
-    public float HorizontalNormilized { get { return horizontal / screenHalfWidth; } }
+    public float Horizontal { get { return movementDelta.x; } }
+    public float HorizontalNormilized { get { return movementDelta.x / screenHalfWidth; } }
 
-    public float Vertical { get { return vertical; } }
-    public float VerticalNormilized { get { return vertical / screenHalfHight; } }
+    public float Vertical { get { return movementDelta.y; } }
+    public float VerticalNormilized { get { return movementDelta.y / screenHalfHight; } }
 
 
     private Vector2 startTouch, movementDelta, lastPosition;
-    private float lastTap, lastChange, horizontal, vertical;
+    private float lastTap, lastChange;
     private int screenHalfWidth, screenHalfHight;
     private bool tap,hold, doubleTap, isStatic;
 
