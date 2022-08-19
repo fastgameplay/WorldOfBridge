@@ -1,0 +1,1 @@
+public enum PlayerStateEnum { IDLE, RUN, BRIDGE, FINISH, DEATH }
