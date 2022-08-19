@@ -87,6 +87,50 @@ public class TouchInput : MonoBehaviour
     }
 
     private void UpdateMobile(){
+        if (Input.touches.Length != 0)
+        {
+            if (Input.touches[0].phase == TouchPhase.Began)
+            {
+                tap = true;
+                hold = true;
+                isStatic = false;
 
+                startTouch = Input.touches[0].position;
+                if (Time.time < lastTap + 0.5f)
+                {
+                    doubleTap = true;
+                }
+                else
+                {
+                    lastTap = lastChange = Time.time;
+                }
+            }
+
+            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+            {
+                hold = isStatic = false;
+                startTouch = Vector2.zero;
+            }
+
+
+
+            //Movement Check
+            if (startTouch != Vector2.zero)
+            {
+
+                movementDelta = (Vector2)Input.mousePosition - startTouch;
+                if (lastChange + 0.25f < Time.time)
+                {
+                    lastPosition = Input.mousePosition;
+                    lastChange = Time.time;
+                }
+
+                if (Vector2.Distance(lastPosition, (Vector2)Input.mousePosition) < 0.5)
+                    isStatic = true;
+                else
+                    isStatic = false;
+
+            }
+        }
     }
 }
