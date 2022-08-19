@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 7477584896442562605, guid: fb166f528b87e0f46822e26ad47189bc, type: 3}
-  Quantity: 43
+  Quantity: 4
+  RotationSpeed: 1
   IsMovable: 1
-  RotationSpeed: 0.1
+  IsFlat: 0

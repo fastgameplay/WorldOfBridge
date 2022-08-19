@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(BiomeFactory))]
 public class WorldBuilder : MonoBehaviour
 {
     [SerializeField] private WorldSettingsScriptable worldSettings;
-    [SerializeField] private BiomeScriptable[] biomes;
     [Range(0,10)]
     [SerializeField] private float offset;
     [Range(2,4)]
@@ -16,7 +15,9 @@ public class WorldBuilder : MonoBehaviour
     [SerializeField] private GameObject roadPref;
     [SerializeField] private GameObject gapPref;
     [SerializeField] private GameObject finishPref;
-    private Dictionary<BiomeType, BiomeScriptable> biomeDictionary = new Dictionary<BiomeType, BiomeScriptable>();
+
+    private BiomeFactory biomeFactory;
+
     private Dictionary<RoadType, GameObject> roadDictionary = new Dictionary<RoadType, GameObject>();
     //Map
     private MapGenerator mapGenerator;
@@ -28,25 +29,23 @@ public class WorldBuilder : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < biomes.Length; i++){
-            biomeDictionary.Add(biomes[i].Type, biomes[i]);
-        }
+        biomeFactory = GetComponent<BiomeFactory>();
         roadDictionary.Add(RoadType.Start, startPref);
         roadDictionary.Add(RoadType.Road, roadPref);
         roadDictionary.Add(RoadType.Gap, gapPref);
         roadDictionary.Add(RoadType.Finish, finishPref);
 
-        mapGenerator = new MapGenerator(worldSettings);
+        mapGenerator = new MapGenerator(worldSettings,biomeFactory);
 
         roadBuilder = gameObject.AddComponent<RoadBuilder>();
 
-        roadBuilder.SetBuilder(roadDictionary, biomeDictionary);
+        roadBuilder.SetBuilder(biomeFactory);
 
         worldMap = mapGenerator.GenerateMap(5);
 
         for (int i = 0; i < worldMap.Length; i++)
         {
-            roadBuilder.Build(worldMap[i], transform);
+            roadBuilder.Build(worldMap[i], transform, roadDictionary[ worldMap[i].Type]);
         }
 
     }

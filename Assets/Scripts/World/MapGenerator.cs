@@ -1,11 +1,13 @@
 public class MapGenerator{
     public WorldSettingsScriptable WorldSettings { get {return worldSettings; } }
-
     private WorldSettingsScriptable worldSettings;
+
+    private BiomeFactory biomeFactory;
     private RoadFactory roadFactory;
     
-    public MapGenerator(WorldSettingsScriptable _worldSettings){
+    public MapGenerator(WorldSettingsScriptable _worldSettings, BiomeFactory _biomeFactory){
         worldSettings = _worldSettings;
+        biomeFactory = _biomeFactory;
         roadFactory = new RoadFactory(this);
     }
 
@@ -24,17 +26,28 @@ public class MapGenerator{
         //FinishRoadPart
         roadMap[Size * 2] = roadFactory.Finish(roadMap[Size * 2 - 1].EndPos);
 
-        //fillup map
+
+        return FillData(roadMap);
+    }
+
+    private Road[] FillData(Road[] roadMap){
         for (int i = 0; i < roadMap.Length; i++){
-            if (roadMap[i].Type == RoadType.Gap){
+            if (roadMap[i].Type == RoadType.Road){
+                roadMap[i].Biome = biomeFactory.GetRandomBiomeType();
+                continue;
+            }
+            if (roadMap[i].Type == RoadType.Gap)
+            {
                 roadMap[i].nextWidth = roadMap[i + 1].Width;
                 roadMap[i].Width = roadMap[i - 1].Width; //Scale to previous road part
                 continue;
             }
-            if(roadMap[i].Type == RoadType.Finish){
+            if (roadMap[i].Type == RoadType.Finish)
+            {
                 roadMap[i].Width = roadMap[i - 1].Width;
             }
         }
         return roadMap;
+
     }
 }

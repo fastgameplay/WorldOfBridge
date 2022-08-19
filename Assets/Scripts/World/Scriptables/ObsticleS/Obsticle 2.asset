@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27fb6b8f329162f4e88367faa4d32ba1, type: 3}
-  m_Name: Biome
+  m_Script: {fileID: 11500000, guid: 700d476d28b76994eb6596e3509bf8e6, type: 3}
+  m_Name: Obsticle 2
   m_EditorClassIdentifier: 
-  Type: 2
-  GroundColor: {r: 0.48007393, g: 1, b: 0, a: 1}
-  Obsticles:
-  - {fileID: 11400000, guid: 97e2134413e3bf94487d03338e771c96, type: 2}
-  Coin: {fileID: 0}
-  Offset: 1.1
-  ObsticleSize: 1
+  Prefabs:
+  - {fileID: 7477584896442562605, guid: 7da551ad61abf98449c0cb608c67ee46, type: 3}
+  Quantity: 5
+  RotationSpeed: 0.1
+  IsMovable: 1
+  IsFlat: 1

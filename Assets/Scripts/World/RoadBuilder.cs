@@ -3,46 +3,45 @@ using UnityEngine;
 
 public class RoadBuilder : MonoBehaviour
 {
-    
-    private Dictionary<RoadType, GameObject> prefs = new Dictionary<RoadType, GameObject>();
-    private Dictionary<BiomeType, BiomeScriptable> biomes;
+    BiomeFactory biomeFactory;
 
     private Quaternion standartQuaternion;
-    public void SetBuilder (Dictionary<RoadType, GameObject> _prefs, Dictionary<BiomeType,BiomeScriptable> _biomes){
-        prefs = _prefs;
-        biomes = _biomes;
+    public void SetBuilder (BiomeFactory _biomeFactory){
+        biomeFactory = _biomeFactory;
         standartQuaternion = Quaternion.Euler(new Vector3(90, 0, 0));
     }
     
-    public GameObject Build(Road road, Transform parent){
+    public GameObject Build(Road _road,Transform _parent, GameObject _roadPrefab)
+    {
         GameObject obj;
-        switch (road.Type)
+        switch (_road.Type)
         {
             case RoadType.Road:
-                obj = WithBiome(road);
+                obj = WithBiome(_road, _roadPrefab, biomeFactory.GetBiome(_road.Biome));
                 break;
             default:
-                obj = WithoutBiome(road);
+                obj = WithoutBiome(_road,_roadPrefab);
                 break;
         }
-        obj.transform.parent = parent;
+        obj.transform.parent = _parent;
         return obj;
     }
-    private GameObject WithBiome(Road road){
+    private GameObject WithBiome(Road road, GameObject RoadPrefab, BiomeScriptable Biome){
         GameObject holder = new GameObject("RoadHolder");
         holder.transform.position = road.Position;
         holder.transform.rotation = standartQuaternion;
-        GameObject RoadObj = Instantiate(prefs[road.Type], Vector3.zero, new Quaternion(0,0,0,0), holder.transform);
+        GameObject RoadObj = Instantiate(RoadPrefab, Vector3.zero, new Quaternion(0,0,0,0), holder.transform);
         RoadObj.transform.localPosition = Vector3.zero;
         RoadObj.transform.localScale = road.Scale;
-        RoadObj.GetComponent<MeshRenderer>().material.color = biomes[road.Biome].GroundColor;
-        biomes[road.Biome].SetBiome(road.Scale, holder.transform);
+        RoadObj.GetComponent<MeshRenderer>().material.color = Biome.GroundColor;
+        Biome.SetBiome(road.Scale, holder.transform);
         
         return holder;
         
     }
-    private GameObject WithoutBiome(Road road){
-        GameObject obj = Instantiate(prefs[road.Type], road.Position, standartQuaternion);
+    private GameObject WithoutBiome(Road road, GameObject RoadPrefab)
+    {
+        GameObject obj = Instantiate(RoadPrefab, road.Position, standartQuaternion);
         obj.transform.localScale = road.Scale;
         return obj;
     }
