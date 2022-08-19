@@ -6,38 +6,17 @@ public class TouchInput : MonoBehaviour
     public bool Hold { get { return hold; } }
     public bool DoubleTap { get { return doubleTap; } }
     public bool IsStatic { get { return isStatic; } }
-    
+
     public float Horizontal { get { return movementDelta.x; } }
-    public float HorizontalNormilized { get { return movementDelta.x / screenHalfWidth; } }
-
     public float Vertical { get { return movementDelta.y; } }
-    public float VerticalNormilized { get { return movementDelta.y / screenHalfHight; } }
-
+    public Vector2 Axis { get { return movementDelta; } }
 
     private Vector2 startTouch, movementDelta, lastPosition;
     private float lastTap, lastChange;
-    private int screenHalfWidth, screenHalfHight;
     private bool tap,hold, doubleTap, isStatic;
 
-    private static TouchInput instance;
-    public static TouchInput Instance
-    {
-        get
-        {
-            if(instance == null){
-                instance = FindObjectOfType<TouchInput>();
-                if (instance == null) {
-                    instance = new GameObject("Spawned TouchInput", typeof(TouchInput)).GetComponent<TouchInput>();
-                }
-            }
-            return instance;
-        }
-    }
+   
 
-    private void Awake(){
-        screenHalfHight = Screen.height / 2;
-        screenHalfWidth = Screen.width / 2;
-    }
 
     private void Update(){
         tap = doubleTap = false;
