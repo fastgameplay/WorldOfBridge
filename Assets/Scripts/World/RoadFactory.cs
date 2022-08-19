@@ -1,9 +1,11 @@
 public class RoadFactory
 {
+    private bool isFirstRoad;
     private MapGenerator context;
     public RoadFactory(MapGenerator _context)
     {
         context = _context;
+        isFirstRoad = false;
     }
     public Road Gap(float startPos){
         Road rd = new Road();
@@ -19,6 +21,7 @@ public class RoadFactory
         Road rd = new Road();
         rd.Length = context.WorldSettings.StartLength;
         rd.Type = RoadType.Start;
+        rd.Width = 5; //HardCoded
         rd.StartPos = context.WorldSettings.StartPos;
         return rd;
 
@@ -29,8 +32,7 @@ public class RoadFactory
         rd.Width = context.WorldSettings.Width;
         rd.Type = RoadType.Road;
         rd.StartPos = startPos;
-        //TODO : Change To RandomBiome;
-        rd.Biome = BiomeType.Forest;
+        if (isFirstRoad) rd.Width = 5; //HardCoded
         return rd;
     }
     public Road Finish(float startPos)
