@@ -14,9 +14,10 @@ public abstract class PlayerBaseState{
     public abstract void UpdateState();
     public abstract void ExitState();
 
-    void SwitchState(PlayerBaseState newState){
+    protected void SwitchState(PlayerBaseState newState){
         ExitState();
         newState.EnterState();
+        ctx.State = newState;
     }
 
 }

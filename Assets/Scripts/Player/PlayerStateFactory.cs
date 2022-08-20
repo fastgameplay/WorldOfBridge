@@ -7,7 +7,7 @@ public class PlayerStateFactory
     readonly PlayerStateManager context;
     readonly Dictionary<PlayerStateEnum, PlayerBaseState> States;
 
-    PlayerStateFactory(PlayerStateManager _context)
+    public PlayerStateFactory(PlayerStateManager _context)
     {
         context = _context;
         //instantiate states
