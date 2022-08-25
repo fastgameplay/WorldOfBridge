@@ -20,7 +20,6 @@ public class BiomeScriptable : ScriptableObject {
         float startPos = (-scale.y)  + Offset;
         float endPos = (scale.y) - Offset;
         scale /= 2;
-        Debug.Log("START END POS " + startPos + " : " + endPos);
         float i = startPos;
         while( i < endPos) {
             Obsticles[0].Spawn(i, scale.x, parent, ObsticleSize);

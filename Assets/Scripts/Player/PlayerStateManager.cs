@@ -11,12 +11,11 @@ public class PlayerStateManager : MonoBehaviour{
 
     public InputManager InputManager { get { return InputManager; } }
     private InputManager inputManager;
-    public PlayerMovement PlayerMovement { get { return playerMovement; } }
+
     private PlayerMovement playerMovement;
-    public PlayerAnimation PlayerAnimation { get { return playerAnimation; } }
     private PlayerAnimation playerAnimation;
 
-
+    public float Speed { set { playerMovement.TargetSpeed = value; } }
     private void Start(){
         inputManager = InputManager.Instance;
 
