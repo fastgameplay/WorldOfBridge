@@ -9,15 +9,18 @@ public class PlayerStateManager : MonoBehaviour{
 
     private PlayerStateFactory stateFactory;
 
-    public InputManager InputManager { get { return InputManager; } }
+    public InputManager InputManager { get { return inputManager; } }
     private InputManager inputManager;
 
     private PlayerMovement playerMovement;
     private PlayerAnimation playerAnimation;
 
+    
     public float Speed { set { playerMovement.TargetSpeed = value; } }
+    
     private void Start(){
         inputManager = InputManager.Instance;
+        inputManager.upldateSettings();
 
         playerMovement = GetComponent<PlayerMovement>();
         playerAnimation = GetComponent<PlayerAnimation>();

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead68cd5906a5da4cabe9737fa3223fe, type: 3}
   m_Name: World Settings
   m_EditorClassIdentifier: 
-  minLength: 10
-  maxLength: 15
+  minLength: 40
+  maxLength: 50
   GapLength: 10
   StartLength: 5
   StartPos: -10

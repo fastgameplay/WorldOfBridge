@@ -6,12 +6,12 @@ public class PlayerIdleState : PlayerBaseState
 {
     public PlayerIdleState(PlayerStateManager _ctx, PlayerStateFactory _factory) : base(_ctx, _factory) {}
 
-    public override void EnterState()
-    {
+    public override void EnterState(){
+        ctx.Speed = 0;
     }
     public override void UpdateState(){
         if (ctx.InputManager.Tap){
-            SwitchState(factory.Run());
+            SwitchState(state.Run());
         }
     }
     public override void ExitState()

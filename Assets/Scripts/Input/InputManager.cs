@@ -33,11 +33,11 @@ public class InputManager : MonoBehaviour
         }
     }
     private static InputManager instance;
-    private void awake(){
+
+    public void upldateSettings(){
         screenHalfHight = Screen.height / 2;
         screenHalfWidth = Screen.width / 2;
         input = GetComponent<TouchInput>();
     }
-
 
 }

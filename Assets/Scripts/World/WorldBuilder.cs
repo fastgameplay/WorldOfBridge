@@ -41,7 +41,7 @@ public class WorldBuilder : MonoBehaviour
 
         roadBuilder.SetBuilder(biomeFactory);
 
-        worldMap = mapGenerator.GenerateMap(5);
+        worldMap = mapGenerator.GenerateMap(10);
 
         for (int i = 0; i < worldMap.Length; i++)
         {

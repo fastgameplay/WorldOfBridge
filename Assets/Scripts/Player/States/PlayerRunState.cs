@@ -8,9 +8,12 @@ public class PlayerRunState : PlayerBaseState
 
     public override void EnterState()
     {
+        ctx.Speed = 0.4f;
     }
-    public override void UpdateState()
-    {
+    public override void UpdateState(){
+        if (ctx.InputManager.Hold == false){
+            SwitchState(state.Idle());
+        }
     }
     public override void ExitState()
     {
