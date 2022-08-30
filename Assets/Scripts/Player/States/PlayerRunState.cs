@@ -11,12 +11,20 @@ public class PlayerRunState : PlayerBaseState
         ctx.Speed = 0.4f;
     }
     public override void UpdateState(){
+        if(ctx.InputManager.IsStatic == false){
+            ctx.RotationDelta = -ctx.InputManager.HorizontalNormilized;
+        }
+        if(ctx.InputManager.IsStatic == true){
+            //can be optimized
+            ctx.RotationDelta = 0;
+        }
+
         if (ctx.InputManager.Hold == false){
             SwitchState(state.Idle());
         }
     }
-    public override void ExitState()
-    {
+    public override void ExitState(){
+        ctx.RotationDelta = 0;
     }
 
 }
