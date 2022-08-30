@@ -4,27 +4,18 @@ using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour
 {
-    public float TargetRotation {
-        set {
-            targetRotation = value;
-
-        }
-        get { return targetRotation; } 
-    }
-
 
     [SerializeField] private float rotationDelta = 0.025f;
+    public float Hight { set { hight = value; } }
+    private float hight = 1;
 
 
-    private Vector3 rotVelosity = Vector3.zero;
 
     private float targetRotation;
-    private float currentRotation { get { return transform.rotation.z; } }
 
     private void Update(){
 
-
-        transform.localEulerAngles = new Vector3(0.0f,0.0f, Mathf.MoveTowardsAngle(currentRotation, targetRotation, rotationDelta));
+        transform.localEulerAngles = new Vector3(0.0f,0.0f, targetRotation);
 
     }
     private void LateUpdate(){
@@ -32,4 +23,8 @@ public class PlayerRotation : MonoBehaviour
         if (targetRotation < 0) targetRotation += 360;
     }
 
+    public void AddToTargetRotation(float value){
+        value /= hight;
+        targetRotation += value;
+    }
 }

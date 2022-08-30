@@ -12,17 +12,17 @@ public class PlayerStateManager : MonoBehaviour{
 
     public InputManager InputManager { get { return inputManager; } }
     private InputManager inputManager;
+    public PlayerRotation PlayerRotation { get { return playerRotation; } }
+    private PlayerRotation playerRotation;
 
     private PlayerMovement playerMovement;
-    private PlayerRotation playerRotation;
+
     //TODO: Implement Player Animation System
     private PlayerAnimation playerAnimation;
 
 
     public float Speed { set { playerMovement.TargetSpeed = value; } }
-    public float TargetRotation { set { 
-            playerRotation.TargetRotation = value; 
-        } get { return playerRotation.TargetRotation; } }
+
 
     private void Start(){
         inputManager = InputManager.Instance;
