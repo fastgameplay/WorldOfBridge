@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbfed4c41be7ab4a9abad61ee93e805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationDelta: 1
+  rotationDelta: 0.125
   playerRotationDelta: 1
 --- !u!1 &204903612
 GameObject:
@@ -1072,6 +1072,7 @@ MonoBehaviour:
   gapPref: {fileID: 2802788690700216841, guid: 8eca05beb7f22794b9cbcd364753f999, type: 3}
   finishPref: {fileID: 7602259803569664690, guid: 20a5b73fe09cc7344b0845a57cbdc1d2,
     type: 3}
+  worldSize: 6
   worldMap: []
 --- !u!114 &1440858806
 MonoBehaviour:

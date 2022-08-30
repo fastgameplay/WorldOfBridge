@@ -20,7 +20,9 @@ public class PlayerStateManager : MonoBehaviour{
 
 
     public float Speed { set { playerMovement.TargetSpeed = value; } }
-    public float RotationDelta { set { playerRotation.TargetDelta = value; } }
+    public float TargetRotation { set { 
+            playerRotation.TargetRotation = value; 
+        } get { return playerRotation.TargetRotation; } }
 
     private void Start(){
         inputManager = InputManager.Instance;

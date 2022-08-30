@@ -15,6 +15,7 @@ public class WorldBuilder : MonoBehaviour
     [SerializeField] private GameObject roadPref;
     [SerializeField] private GameObject gapPref;
     [SerializeField] private GameObject finishPref;
+    [SerializeField] private int worldSize;
 
     private BiomeFactory biomeFactory;
 
@@ -41,7 +42,7 @@ public class WorldBuilder : MonoBehaviour
 
         roadBuilder.SetBuilder(biomeFactory);
 
-        worldMap = mapGenerator.GenerateMap(10);
+        worldMap = mapGenerator.GenerateMap(worldSize);
 
         for (int i = 0; i < worldMap.Length; i++)
         {
