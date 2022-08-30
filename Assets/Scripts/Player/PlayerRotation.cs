@@ -15,7 +15,6 @@ public class PlayerRotation : MonoBehaviour
 
     [SerializeField] private float rotationDelta = 0.025f;
 
-    [SerializeField] private float playerRotationDelta = 1;
 
     private Vector3 rotVelosity = Vector3.zero;
 
@@ -25,13 +24,12 @@ public class PlayerRotation : MonoBehaviour
     private void Update(){
 
 
-        transform.rotation = HolderRotation();
+        transform.localEulerAngles = new Vector3(0.0f,0.0f, Mathf.MoveTowardsAngle(currentRotation, targetRotation, rotationDelta));
+
     }
     private void LateUpdate(){
         if (targetRotation > 360) targetRotation -= 360;
         if (targetRotation < 0) targetRotation += 360;
     }
-    private Quaternion HolderRotation(){
-        return Quaternion.Euler(Vector3.SmoothDamp(transform.rotation.eulerAngles, new Vector3(0.0f, 0.0f, targetRotation), ref rotVelosity, rotationDelta * Time.deltaTime));
-    }
+
 }
