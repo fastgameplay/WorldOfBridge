@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 7477584896442562605, guid: 7da551ad61abf98449c0cb608c67ee46, type: 3}
   Quantity: 5
   RotationSpeed: 0.1
-  IsMovable: 1
+  IsMovable: 0
   IsFlat: 1

@@ -11,7 +11,7 @@ public class PlayerRunState : PlayerBaseState
         ctx.Speed = 0.2f;
     }
     public override void UpdateState(){
-        ctx.PlayerRotation.AddToTargetRotation( -ctx.InputManager.HorizontalNormilized);
+        ctx.PlayerRotation.HorizontalInput = ctx.InputManager.HorizontalNormilized;
 
         ctx.Speed = 0.175f - 0.065f * Mathf.Abs(ctx.InputManager.HorizontalNormilized);
 
@@ -20,6 +20,7 @@ public class PlayerRunState : PlayerBaseState
         }
     }
     public override void ExitState(){
+        ctx.PlayerRotation.HorizontalInput = 0;
     }
 
 }
