@@ -8,7 +8,7 @@ public class PlayerRotation : MonoBehaviour
     [SerializeField] private float MaxHalfRotationAngle;
     [SerializeField] private Transform PlayerModelTransform;
     public float Hight { set { hight = value; } }
-    private float hight = 1;
+    private float hight = 2f;
 
 
     public float HorizontalInput { 
@@ -28,7 +28,7 @@ public class PlayerRotation : MonoBehaviour
 
 
     private void AddToTargetRotation(float value){
-        value /= hight;
+        value *= hight;
         targetRotation += value;
         if (targetRotation > 360) { 
             targetRotation -= 360; 

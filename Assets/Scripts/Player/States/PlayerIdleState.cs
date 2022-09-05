@@ -7,7 +7,7 @@ public class PlayerIdleState : PlayerBaseState
     public PlayerIdleState(PlayerStateManager _ctx, PlayerStateFactory _factory) : base(_ctx, _factory) {}
 
     public override void EnterState(){
-        ctx.Speed = 0;
+        ctx.PlayerMovement.TargetSpeedPercent = 0;
     }
     public override void UpdateState(){
         if (ctx.InputManager.Tap){

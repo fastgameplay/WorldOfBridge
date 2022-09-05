@@ -14,14 +14,13 @@ public class PlayerStateManager : MonoBehaviour{
     private InputManager inputManager;
     public PlayerRotation PlayerRotation { get { return playerRotation; } }
     private PlayerRotation playerRotation;
-
+    public PlayerMovement PlayerMovement { get { return playerMovement; } }
     private PlayerMovement playerMovement;
 
     //TODO: Implement Player Animation System
     private PlayerAnimation playerAnimation;
 
 
-    public float Speed { set { playerMovement.TargetSpeed = value; } }
 
 
     private void Start(){

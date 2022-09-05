@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float AccelerationRate;
-    
-    public float TargetSpeed { 
+    [SerializeField] private float MaxSpeed;
+
+    public float TargetSpeedPercent { 
         set {
             if (value < 0) value = 0;
-            targetSpeed = value; 
+            targetSpeed = MaxSpeed * value; 
         } 
     }
     private float targetSpeed = 0;
@@ -24,12 +25,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void CalculateSpeed(){
-        if(Mathf.Abs(targetSpeed - currentSpeed) > AccelerationRate){
-            currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, AccelerationRate);
-            return;
-        }
         if (currentSpeed == targetSpeed) return;
-        currentSpeed = targetSpeed;
+        if (currentSpeed > targetSpeed) currentSpeed = targetSpeed;
         
+        currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, AccelerationRate);     
     }
 }

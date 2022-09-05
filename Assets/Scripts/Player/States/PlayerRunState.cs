@@ -8,12 +8,12 @@ public class PlayerRunState : PlayerBaseState
 
     public override void EnterState()
     {
-        ctx.Speed = 0.2f;
+        ctx.PlayerMovement.TargetSpeedPercent = 1f;
     }
     public override void UpdateState(){
         ctx.PlayerRotation.HorizontalInput = ctx.InputManager.HorizontalNormilized;
 
-        ctx.Speed = 0.175f - 0.065f * Mathf.Abs(ctx.InputManager.HorizontalNormilized);
+        ctx.PlayerMovement.TargetSpeedPercent = (2 - Mathf.Abs(ctx.InputManager.HorizontalNormilized)) /2;
 
         if (ctx.InputManager.Hold == false){
             SwitchState(state.Idle());
