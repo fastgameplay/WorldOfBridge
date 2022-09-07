@@ -726,6 +726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 667197670}
   - component: {fileID: 667197671}
+  - component: {fileID: 667197672}
   m_Layer: 0
   m_Name: CounterCube
   m_TagString: Untagged
@@ -798,6 +799,21 @@ MonoBehaviour:
   counterText: {fileID: 1583393290}
   levelText: {fileID: 1295443162}
   maxText: {fileID: 204903614}
+--- !u!114 &667197672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667197669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d5ea36a2970324280ed100ee53ae11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 494840680}
+  offset: {x: -1, y: 1, z: 0}
+  smoothSpeed: 0.1
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
