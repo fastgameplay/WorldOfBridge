@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b87080bb635d3d74ea4f610373ed32f4, type: 2}
   Coin: {fileID: 0}
   Offset: 1.1
-  ObsticleSize: 1
+  ObsticleSize: 2.5
