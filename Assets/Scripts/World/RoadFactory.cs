@@ -7,8 +7,8 @@ public class RoadFactory
         context = _context;
         isFirstRoad = false;
     }
-    public Road Gap(float startPos){
-        Road rd = new Road();
+    public RoadStruct Gap(float startPos){
+        RoadStruct rd = new RoadStruct();
         rd.Length = context.WorldSettings.GapLength;
         rd.Width = 1;
         rd.Type = RoadType.Gap;
@@ -16,9 +16,9 @@ public class RoadFactory
         return rd;
 
     }
-    public Road Start()
+    public RoadStruct Start()
     {
-        Road rd = new Road();
+        RoadStruct rd = new RoadStruct();
         rd.Length = context.WorldSettings.StartLength;
         rd.Type = RoadType.Start;
         rd.Width = 5; //HardCoded
@@ -26,8 +26,8 @@ public class RoadFactory
         return rd;
 
     }
-    public Road Road(float startPos){
-        Road rd = new Road();
+    public RoadStruct Road(float startPos){
+        RoadStruct rd = new RoadStruct();
         rd.Length = context.WorldSettings.Length;
         rd.Width = context.WorldSettings.Width;
         rd.Type = RoadType.Road;
@@ -35,9 +35,9 @@ public class RoadFactory
         if (isFirstRoad) rd.Width = 5; //HardCoded
         return rd;
     }
-    public Road Finish(float startPos)
+    public RoadStruct Finish(float startPos)
     {
-        Road rd = new Road();
+        RoadStruct rd = new RoadStruct();
         rd.Length = context.WorldSettings.GapLength;
         rd.Width = context.WorldSettings.Width;
         rd.Type = RoadType.Finish;

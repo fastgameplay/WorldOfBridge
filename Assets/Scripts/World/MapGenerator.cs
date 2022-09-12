@@ -11,8 +11,8 @@ public class MapGenerator{
         roadFactory = new RoadFactory(this);
     }
 
-    public Road[] GenerateMap(int Size){
-        Road[] roadMap = new Road[Size*2+1];
+    public RoadStruct[] GenerateMap(int Size){
+        RoadStruct[] roadMap = new RoadStruct[Size*2+1];
         //first two road parts
         roadMap[0] = roadFactory.Start();
         roadMap[0].Width = 5;
@@ -30,7 +30,7 @@ public class MapGenerator{
         return FillData(roadMap);
     }
 
-    private Road[] FillData(Road[] roadMap){
+    private RoadStruct[] FillData(RoadStruct[] roadMap){
         for (int i = 0; i < roadMap.Length; i++){
             if (roadMap[i].Type == RoadType.Road){
                 roadMap[i].Biome = biomeFactory.GetRandomBiomeType();
@@ -38,7 +38,7 @@ public class MapGenerator{
             }
             if (roadMap[i].Type == RoadType.Gap)
             {
-                roadMap[i].nextWidth = roadMap[i + 1].Width;
+                roadMap[i].NextWidth = roadMap[i + 1].Width;
                 roadMap[i].Width = roadMap[i - 1].Width; //Scale to previous road part
                 continue;
             }

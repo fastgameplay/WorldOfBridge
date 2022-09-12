@@ -23,7 +23,7 @@ public class WorldBuilder : MonoBehaviour
     //Map
     private MapGenerator mapGenerator;
     private RoadBuilder roadBuilder;
-    public Road[] worldMap;
+    [SerializeField] private RoadStruct[] worldMap;
     
 
 
@@ -31,6 +31,7 @@ public class WorldBuilder : MonoBehaviour
     private void Start()
     {
         biomeFactory = GetComponent<BiomeFactory>();
+
         roadDictionary.Add(RoadType.Start, startPref);
         roadDictionary.Add(RoadType.Road, roadPref);
         roadDictionary.Add(RoadType.Gap, gapPref);

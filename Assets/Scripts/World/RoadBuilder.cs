@@ -11,7 +11,7 @@ public class RoadBuilder : MonoBehaviour
         standartQuaternion = Quaternion.Euler(new Vector3(90, 0, 0));
     }
     
-    public GameObject Build(Road _road,Transform _parent, GameObject _roadPrefab)
+    public GameObject Build(RoadStruct _road,Transform _parent, GameObject _roadPrefab)
     {
         GameObject obj;
         switch (_road.Type)
@@ -24,9 +24,10 @@ public class RoadBuilder : MonoBehaviour
                 break;
         }
         obj.transform.parent = _parent;
+        obj.AddComponent<Road>().AddStruct(_road);
         return obj;
     }
-    private GameObject WithBiome(Road road, GameObject RoadPrefab, BiomeScriptable Biome){
+    private GameObject WithBiome(RoadStruct road, GameObject RoadPrefab, BiomeScriptable Biome){
         GameObject holder = new GameObject("RoadHolder");
         holder.transform.position = road.Position;
         holder.transform.rotation = standartQuaternion;
@@ -39,7 +40,7 @@ public class RoadBuilder : MonoBehaviour
         return holder;
         
     }
-    private GameObject WithoutBiome(Road road, GameObject RoadPrefab)
+    private GameObject WithoutBiome(RoadStruct road, GameObject RoadPrefab)
     {
         GameObject obj = Instantiate(RoadPrefab, road.Position, standartQuaternion);
         obj.transform.localScale = road.Scale;
