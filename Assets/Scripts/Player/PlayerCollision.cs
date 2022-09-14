@@ -12,10 +12,11 @@ public class PlayerCollision : MonoBehaviour{
         if(other.tag == "Gap"){
             Road road = other.gameObject.GetComponent<Road>();
             GameObject obj = CreateEmptyGameObject(other.transform);
-            obj.transform.localRotation = Quaternion.Euler(0, 0, transform.localRotation.z);
-            obj.AddComponent<Bridge>().Create(new Vector3(road.Length, road.NextWidth - road.Width, 0.0f), road.Width);
+            obj.transform.localRotation = Quaternion.Euler(0, transform.localRotation.z, 0);
+            obj.AddComponent<Bridge>().Create(new Vector3(road.Length*2, road.NextWidth - road.Width, 0.0f), road.Width);
 
             playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth/2;
+            Destroy(other);
         }
     }
 
