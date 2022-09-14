@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerSpeed))]
 [RequireComponent(typeof(PlayerRotation))]
 [RequireComponent(typeof(PlayerAnimation))]
 public class PlayerStateManager : MonoBehaviour{
@@ -14,8 +14,8 @@ public class PlayerStateManager : MonoBehaviour{
     private InputManager inputManager;
     public PlayerRotation PlayerRotation { get { return playerRotation; } }
     private PlayerRotation playerRotation;
-    public PlayerMovement PlayerMovement { get { return playerMovement; } }
-    private PlayerMovement playerMovement;
+    public PlayerSpeed PlayerMovement { get { return playerMovement; } }
+    private PlayerSpeed playerMovement;
 
     //TODO: Implement Player Animation System
     private PlayerAnimation playerAnimation;
@@ -27,7 +27,7 @@ public class PlayerStateManager : MonoBehaviour{
         inputManager = InputManager.Instance;
         inputManager.upldateSettings();
 
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerSpeed>();
         playerRotation = GetComponent<PlayerRotation>();
         playerAnimation = GetComponent<PlayerAnimation>();
 

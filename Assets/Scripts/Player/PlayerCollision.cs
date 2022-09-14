@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerHight))]
 public class PlayerCollision : MonoBehaviour{
-    private PlayerMovement playerMovement;
+
+    private PlayerHight playerHight;
     private void Awake(){
-        playerMovement = GetComponent<PlayerMovement>();
+        playerHight = GetComponent<PlayerHight>();
     }
     private void OnTriggerEnter(Collider other){
         if(other.tag == "Bridge"){
             //other.addbridge && player changeHight.
             GameObject obj = CreateEmptyGameObject(other.transform);
+
+            //!TODO ADD ROAD Script TO ROAD GAMEOBJECTS
+            //playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth;
         }
     }
 
