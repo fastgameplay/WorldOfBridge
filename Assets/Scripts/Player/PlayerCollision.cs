@@ -11,11 +11,11 @@ public class PlayerCollision : MonoBehaviour{
     private void OnTriggerEnter(Collider other){
         if(other.tag == "Gap"){
             Road road = other.gameObject.GetComponent<Road>();
-            GameObject obj = CreateEmptyGameObject(other.transform);
+            
+            if (other.transform.childCount == 0){
+                BridgeBuilder bb = new BridgeBuilder(other.transform, Color.green, road, transform.rotation.eulerAngles.z);
+            }
 
-            obj.AddComponent<Bridge>().Create(new Vector3(road.Length*2, road.NextWidth, 0.0f), 0.3f);
-
-            //playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth/2;
             Destroy(other);
         }
     }

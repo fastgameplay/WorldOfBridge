@@ -17,5 +17,5 @@ MonoBehaviour:
   Obsticles:
   - {fileID: 11400000, guid: 97e2134413e3bf94487d03338e771c96, type: 2}
   Coin: {fileID: 0}
-  Offset: 1.1
+  Offset: 5
   ObsticleSize: 1
