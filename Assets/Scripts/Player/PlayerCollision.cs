@@ -7,6 +7,7 @@ public class PlayerCollision : MonoBehaviour{
     private PlayerStateManager stateManager;
     private PlayerHight playerHight;
     private void Awake(){
+        stateManager = GetComponent<PlayerStateManager>();
         playerHight = GetComponent<PlayerHight>();
     }
     private void OnTriggerEnter(Collider other){
@@ -16,9 +17,15 @@ public class PlayerCollision : MonoBehaviour{
             if (other.transform.childCount == 0){
                 BridgeBuilder bb = new BridgeBuilder(other.transform, Color.green, road, transform.rotation.eulerAngles.z);
             }
-
+            
+            playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth/2;
+            
             stateManager.ChangeState(PlayerStateEnum.BRIDGE);
             
+            Destroy(other);
+        }
+        if(other.tag == "Road"){
+            stateManager.ChangeState(PlayerStateEnum.IDLE);
             Destroy(other);
         }
     }

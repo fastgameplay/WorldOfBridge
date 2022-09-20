@@ -10,7 +10,7 @@ public class PlayerIdleState : PlayerBaseState
         ctx.PlayerMovement.TargetSpeedPercent = 0;
     }
     public override void UpdateState(){
-        if (ctx.InputManager.Tap){
+        if (ctx.InputManager.Hold){
             SwitchState(state.Run());
         }
     }
