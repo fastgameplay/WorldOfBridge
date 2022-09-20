@@ -12,9 +12,9 @@ public class BridgeBuilder{
 
         GameObject bridge = GameObject.CreatePrimitive(PrimitiveType.Cube);
         bridge.transform.parent = bridgeHolder.transform;
-        bridge.transform.localScale = new Vector3(1, 1, 0.1f);
         bridge.transform.localRotation = Quaternion.Euler(Vector3.zero);
         bridge.transform.localPosition = Vector3.zero;
+        bridge.AddComponent<BridgePlacement>().Place(new Vector3(0,_data.NextWidth- _data.Width, _data.Length * 2),_data.Width) ;
     }    
 
     private Vector3 CalculateLocalScale(Transform _parent){

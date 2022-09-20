@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerModelHolder: {fileID: 869937403}
-  HightOffset: 0
+  HightOffset: 0.5
   HightChangeSpeed: 0.02
 --- !u!114 &127793434
 MonoBehaviour:
