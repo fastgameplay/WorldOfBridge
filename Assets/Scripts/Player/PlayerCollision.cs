@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(PlayerHight))]
+[RequireComponent(typeof(PlayerStateManager))]
 public class PlayerCollision : MonoBehaviour{
-
+    private PlayerStateManager stateManager;
     private PlayerHight playerHight;
     private void Awake(){
         playerHight = GetComponent<PlayerHight>();
@@ -16,6 +17,8 @@ public class PlayerCollision : MonoBehaviour{
                 BridgeBuilder bb = new BridgeBuilder(other.transform, Color.green, road, transform.rotation.eulerAngles.z);
             }
 
+            stateManager.ChangeState(PlayerStateEnum.BRIDGE);
+            
             Destroy(other);
         }
     }

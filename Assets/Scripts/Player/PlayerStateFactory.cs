@@ -19,6 +19,9 @@ public class PlayerStateFactory
         { PlayerStateEnum.FINISH , new PlayerFinishState(context,this)}
         };
     }
+    public PlayerBaseState State(PlayerStateEnum stateEnum){
+        return States[stateEnum];
+    }
     public PlayerBaseState Idle()
     {
         return States[PlayerStateEnum.IDLE];

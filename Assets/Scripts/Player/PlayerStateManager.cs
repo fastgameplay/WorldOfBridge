@@ -38,4 +38,10 @@ public class PlayerStateManager : MonoBehaviour{
     private void Update(){
         state.UpdateState();
     }
+
+    public void ChangeState(PlayerStateEnum _stateEnum){
+        state.ExitState();
+        state = stateFactory.State(_stateEnum);
+        state.EnterState();
+    }
 }
