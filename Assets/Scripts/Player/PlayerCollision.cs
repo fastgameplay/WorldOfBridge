@@ -14,10 +14,6 @@ public class PlayerCollision : MonoBehaviour{
         if(other.tag == "Gap"){
             Road road = other.gameObject.GetComponent<Road>();
             
-            if (other.transform.childCount == 0){
-                BridgeBuilder bb = new BridgeBuilder(other.transform, Color.green, road, transform.rotation.eulerAngles.z);
-            }
-            
             playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth/2;
             
             stateManager.ChangeState(PlayerStateEnum.BRIDGE);
