@@ -12,13 +12,21 @@ public class PlayerCollision : MonoBehaviour{
     }
     private void OnTriggerEnter(Collider other){
         if(other.tag == "Gap"){
-            Road road = other.gameObject.GetComponent<Road>();
+            if(other.transform.childCount == 0){
+                new GameObject("TempObject").transform.parent = other.transform;
+
+                Road road = other.gameObject.GetComponent<Road>();
+
+                GameObject bridgeHolder = new GameObject("BridgeHolder");
+                bridgeHolder.transform.position = road.Position;
+                bridgeHolder.AddComponent<BridgeHolder>().BuildBridge(road,transform.localRotation);
             
-            playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth/2;
+                playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth/2;
             
-            stateManager.ChangeState(PlayerStateEnum.BRIDGE);
+                stateManager.ChangeState(PlayerStateEnum.BRIDGE);
             
-            Destroy(other);
+                Destroy(other.gameObject);
+            }
         }
         if(other.tag == "Road"){
             stateManager.ChangeState(PlayerStateEnum.IDLE);

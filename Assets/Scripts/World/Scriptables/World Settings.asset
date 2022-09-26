@@ -17,5 +17,5 @@ MonoBehaviour:
   GapLength: 20
   StartLength: 5
   StartPos: -10
-  minWidth: 6
-  maxWidth: 6
+  minWidth: 5
+  maxWidth: 5
