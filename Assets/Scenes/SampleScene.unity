@@ -687,7 +687,9 @@ GameObject:
   - component: {fileID: 667197670}
   - component: {fileID: 667197671}
   - component: {fileID: 667197672}
+  - component: {fileID: 667197675}
   - component: {fileID: 667197673}
+  - component: {fileID: 667197674}
   m_Layer: 0
   m_Name: CounterCube
   m_TagString: Untagged
@@ -754,10 +756,6 @@ MonoBehaviour:
   - {r: 0, g: 0.75, b: 1, a: 1}
   - {r: 0, g: 1, b: 1, a: 1}
   baseColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
-  level: 8
-  blocksPerLevel: 32
-  popUpPref: {fileID: 6340378714095765784, guid: 7496b8d99105fd141a3d69eb11323715,
-    type: 3}
 --- !u!114 &667197672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,6 +793,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &667197674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667197669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5af6b1a93cfb246ab969daeeb588d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level: 1
+  blocksPerLevel: 16
+--- !u!114 &667197675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667197669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f44035341bf7f74f989b549e682a1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PopTextPrefab: {fileID: 6340378714095765784, guid: 7496b8d99105fd141a3d69eb11323715,
+    type: 3}
 --- !u!1001 &705653197
 PrefabInstance:
   m_ObjectHideFlags: 0

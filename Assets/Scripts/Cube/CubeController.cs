@@ -1,25 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-[RequireComponent(typeof(CubeText))]
 public class CubeController : MonoBehaviour
 {
     [SerializeField] private GameObject cubePref;
     [SerializeField] private Color[] colors;
     [SerializeField] private Color baseColor;
-    [Range(1,8)]
-    [SerializeField] private int level;
-    [SerializeField] private int blocksPerLevel;
-    
-    //DELETE FROM HERE
-    [Header("Pop Up Texts")]
-    [SerializeField] private GameObject popUpPref;
 
-
-    bool isMaxAmount;
-    //TextController
-    private CubeText cubeText;
 
 
     private Material topMaterial;
@@ -30,23 +15,15 @@ public class CubeController : MonoBehaviour
     private CubeScaling cubeVariator;
 
     private int sectionsAmount;
-    private int maxAmount;
 
     private int quantity;
-    private int oldQuantity;
     [SerializeField]
     public int Quantity{
         get { return quantity; }
         set {
-            oldQuantity = quantity;
             quantity = value;
-            
-            if (quantity < 0) quantity = 0;
-            if (quantity > maxAmount) quantity = maxAmount;
-
             SetColors();
             SetTransform();
-            UpdateText();
         }
     }
 
@@ -54,17 +31,6 @@ public class CubeController : MonoBehaviour
 
     void Start()
     {
-        cubeText = GetComponent<CubeText>();
-
-        cubeText.SetLevel(level);
-        cubeText.SetLevelState(false);
-        cubeText.SetMaxState(false);
-
-        maxAmount = level * blocksPerLevel;
-        sectionsAmount = level + 2;
-
-        cubeVariator = new CubeScaling(sectionsAmount);
-
         quantity = 0;
 
         topObject = Instantiate(cubePref, Vector3.zero, Quaternion.Euler(Vector3.zero), transform);
@@ -75,39 +41,14 @@ public class CubeController : MonoBehaviour
 
         topObject.transform.localPosition = Vector3.zero;
         botObject.transform.localPosition = new Vector3(0, -20, 0);
-
     }
 
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            level += 1;
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            level -= 1;
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            Quantity += 1;
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Quantity -= 1;
-        }
-        if(Input.GetKeyDown(KeyCode.Space)){
-            cubeText.SetLevel(level);
-            maxAmount = level * blocksPerLevel;
-            if (quantity > maxAmount) quantity = maxAmount;
-            sectionsAmount = level + 2;
-            UpdateText();
-            cubeVariator = new CubeScaling(sectionsAmount);
-        }
+
+    public void SetUp(int _sectionsAmount){
+        sectionsAmount = _sectionsAmount;
+        cubeVariator = new CubeScaling(_sectionsAmount);
     }
-
-
     private void SetColors(){
         if (quantity < sectionsAmount){
             topMaterial.color = Color.white;
@@ -120,22 +61,10 @@ public class CubeController : MonoBehaviour
 
     }
 
-
-
     private void SetTransform(){
         cubeVariator.SetCubes(topObject, botObject, quantity % sectionsAmount);
     }
-//Todo move to separate class
-    private void UpdateText(){
-        if(quantity == maxAmount){
-            cubeText.SetMaxState(true);
-            cubeText.SetText(quantity.ToString(), Color.red);
-        }
-        else if (quantity != maxAmount){
-            cubeText.SetMaxState(false);
-            cubeText.SetText(quantity.ToString(), Color.white);
-        }
-    }
+   
 
 }
 
