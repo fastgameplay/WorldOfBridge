@@ -11,6 +11,8 @@ public class CubeController : MonoBehaviour
     [Range(1,8)]
     [SerializeField] private int level;
     [SerializeField] private int blocksPerLevel;
+    
+    //DELETE FROM HERE
     [Header("Pop Up Texts")]
     [SerializeField] private GameObject popUpPref;
 
@@ -42,7 +44,6 @@ public class CubeController : MonoBehaviour
             if (quantity < 0) quantity = 0;
             if (quantity > maxAmount) quantity = maxAmount;
 
-            SetPop(oldQuantity, quantity);
             SetColors();
             SetTransform();
             UpdateText();
@@ -135,18 +136,6 @@ public class CubeController : MonoBehaviour
             cubeText.SetText(quantity.ToString(), Color.white);
         }
     }
-//TODO move to Separate Class
-    private void SetPop(int oldQuantity, int newQuantity){
-        if(oldQuantity != newQuantity){
-            GameObject popText = Instantiate(popUpPref, Vector3.zero, Quaternion.Euler(Vector3.zero), transform);
-            popText.transform.localPosition = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 0.0f), -1); //SetRandPos
-            popText.GetComponent<PopUpController>()
-                .SetText(
-                    oldQuantity < newQuantity ? $"+{newQuantity - oldQuantity}" : $"{newQuantity - oldQuantity}",   //Check for number sign
-                    oldQuantity < newQuantity ? Color.green : Color.red                                             //Check for TextColor
-                );
-        }
 
-    }
 }
 
