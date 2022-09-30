@@ -242,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd26448f24e8974d95793d3650254d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cubeProxy: {fileID: 667197674}
 --- !u!136 &127793435
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -685,11 +686,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 667197670}
+  - component: {fileID: 667197674}
   - component: {fileID: 667197671}
   - component: {fileID: 667197672}
-  - component: {fileID: 667197675}
   - component: {fileID: 667197673}
-  - component: {fileID: 667197674}
   m_Layer: 0
   m_Name: CounterCube
   m_TagString: Untagged
@@ -805,22 +805,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c5af6b1a93cfb246ab969daeeb588d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popText: {fileID: 1575261880}
   Level: 1
   blocksPerLevel: 16
---- !u!114 &667197675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667197669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f44035341bf7f74f989b549e682a1c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PopTextPrefab: {fileID: 6340378714095765784, guid: 7496b8d99105fd141a3d69eb11323715,
-    type: 3}
 --- !u!1001 &705653197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1217,6 +1204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1575261879}
+  - component: {fileID: 1575261880}
   m_Layer: 0
   m_Name: CubeTarget
   m_TagString: Untagged
@@ -1240,6 +1228,21 @@ Transform:
   m_Father: {fileID: 869937404}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1575261880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575261878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f44035341bf7f74f989b549e682a1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PopTextPrefab: {fileID: 6340378714095765784, guid: 7496b8d99105fd141a3d69eb11323715,
+    type: 3}
+  Scale: {x: 1, y: 1, z: 1}
 --- !u!1 &1642869068
 GameObject:
   m_ObjectHideFlags: 0
