@@ -4,8 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerHight))]
 [RequireComponent(typeof(PlayerStateManager))]
 public class PlayerCollision : MonoBehaviour{
+    [SerializeField] private CubeProxy cubeProxy;
     private PlayerStateManager stateManager;
     private PlayerHight playerHight;
+
     private void Awake(){
         stateManager = GetComponent<PlayerStateManager>();
         playerHight = GetComponent<PlayerHight>();
@@ -13,13 +15,23 @@ public class PlayerCollision : MonoBehaviour{
     private void OnTriggerEnter(Collider other){
         if(other.tag == "Gap"){
             if(other.transform.childCount == 0){
+                if(cubeProxy.Quantity == 0){
+                    stateManager.ChangeState(PlayerStateEnum.DEATH);
+                }
                 new GameObject("TempObject").transform.parent = other.transform;
 
                 Road road = other.gameObject.GetComponent<Road>();
 
                 GameObject bridgeHolder = new GameObject("BridgeHolder");
                 bridgeHolder.transform.position = road.Position;
-                bridgeHolder.AddComponent<BridgeHolder>().BuildBridge(road,transform.localRotation);
+                if(cubeProxy.Quantity < 20){
+                    bridgeHolder.AddComponent<BridgeHolder>().BuildBridge(road, transform.localRotation, cubeProxy.Quantity * 5);
+                    cubeProxy.Quantity = 0;
+                }
+                else{
+                    bridgeHolder.AddComponent<BridgeHolder>().BuildBridge(road,transform.localRotation,20);
+                    cubeProxy.Quantity -= 20;
+                }
             
                 playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth/2;
             
@@ -27,10 +39,17 @@ public class PlayerCollision : MonoBehaviour{
             
                 Destroy(other.gameObject);
             }
+            return;
+        }
+        if(other.tag == "BridgeEnd"){
+            stateManager.ChangeState(PlayerStateEnum.DEATH);
+            playerHight.StopMotion();
+            
         }
         if(other.tag == "Road"){
             stateManager.ChangeState(PlayerStateEnum.IDLE);
             Destroy(other);
+            return;
         }
     }
 

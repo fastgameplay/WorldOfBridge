@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(CubeController))]
 [RequireComponent(typeof(CubeText))]
-[RequireComponent(typeof(PopText))]
 public class CubeProxy : MonoBehaviour
 {
     //quantity of cube getter
@@ -24,14 +23,15 @@ public class CubeProxy : MonoBehaviour
             popText.Pop(lastQuantity, value);
         }
     }
-    
+
+    [SerializeField] private PopText popText;
+
     [SerializeField] private int Level;
     [SerializeField] private int blocksPerLevel;
     
     
     private CubeController cubeController;
     private CubeText cubeText;
-    private PopText popText;
 
     private int lastQuantity;
     private int maxAmount;
@@ -47,7 +47,6 @@ public class CubeProxy : MonoBehaviour
         cubeText.SetLevelState(false);
         cubeText.SetMaxState(false);
 
-        popText = GetComponent<PopText>();
     }
 
     private void UpdateCubeText(int _quantity)

@@ -47,4 +47,8 @@ public class PlayerHight : MonoBehaviour{
         hight = Mathf.MoveTowards(hight, targetHight, HightChangeSpeed);
 
     }
+
+    public void StopMotion(){
+        isHightChange = false;
+    }
 }

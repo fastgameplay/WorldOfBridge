@@ -27,6 +27,10 @@ public class BridgePlacement : MonoBehaviour{
     public void BuildBridge(){
         StartCoroutine(StartBridgeBuilder(100));
     }
+    public void BuildBridge(int percent)
+    {
+        StartCoroutine(StartBridgeBuilder(percent));
+    }
     private void AdjustPlacement(float percent){
         transform.localScale = new Vector3(maxScale.x, maxScale.y, maxScale.z * percent);
         transform.localPosition = new Vector3(startPoint.x, startPoint.y, -20 + (maxScale.z * percent)/2);
