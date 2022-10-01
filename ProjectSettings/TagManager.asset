@@ -7,6 +7,7 @@ TagManager:
   - Gap
   - Road
   - Bridge
+  - PickUpCube
   layers:
   - Default
   - TransparentFX
