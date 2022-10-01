@@ -41,9 +41,8 @@ public class PlayerCollision : MonoBehaviour{
             }
             return;
         }
-        if(other.tag == "BridgeEnd"){
+        if(other.tag == "Bridge"){
             stateManager.ChangeState(PlayerStateEnum.DEATH);
-            playerHight.StopMotion();
             
         }
         if(other.tag == "Road"){

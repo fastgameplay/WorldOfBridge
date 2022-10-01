@@ -9,7 +9,7 @@ public class PopText : MonoBehaviour{
         if (oldQuantity != newQuantity)
         {
             GameObject popText = Instantiate(PopTextPrefab, Vector3.zero, Quaternion.Euler(Vector3.zero), transform);
-            PopLocal(popText, new Vector3(0,0,-0.5f), new Vector3(0.75f * Scale.x, 0.75f * Scale.y, 0 * Scale.z));
+            PopLocal(popText, new Vector3(0,0,-0.5f), new Vector3(0.75f * Scale.x, 0.75f  * Scale.y, 0 * Scale.z));
             popText.GetComponent<PopUpController>()
                 .SetText(
                     oldQuantity < newQuantity ? $"+{newQuantity - oldQuantity}" : $"{newQuantity - oldQuantity}",   //Check for number sign

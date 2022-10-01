@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Gap
   - Road
+  - Bridge
   layers:
   - Default
   - TransparentFX
