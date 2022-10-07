@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(SkySettingsFactory))]
 public class SkyBoxManager : MonoBehaviour{
     [SerializeField] private Material skyboxMaterial;
     private Color topColor { get { return skyboxMaterial.GetColor("_TopColor"); } set { skyboxMaterial.SetColor("_TopColor", value); } }
@@ -9,25 +9,30 @@ public class SkyBoxManager : MonoBehaviour{
     private float power { get { return skyboxMaterial.GetFloat("_power"); } set { skyboxMaterial.SetFloat("_power", value); } }
     private float starVisibility { get { return skyboxMaterial.GetFloat("_StarVisibility"); } set { skyboxMaterial.SetFloat("_StarVisibility", value); } }
 
+    private SkySettingsFactory skySettingsFactory;
+
+
+    private void Start(){
+        skySettingsFactory = GetComponent<SkySettingsFactory>();
+    }
     public void StopChanges(){
         StopAllCoroutines();
     }
 
 
-    public void ChangeSkyBox(Color _topColor, Color _botColor, bool _isDay, bool _isStarVisible){
-        StartCoroutine(ChangeTopColor(_topColor, 3f));
-        StartCoroutine(ChangeBotColor(_botColor, 3f));
-        ChangeDayNightCycle(_isDay);
-        ChangeStarVisibility(_isStarVisible);
-    }
-    public void ChangeSkyBox(SkyBoxSettings sky)
-    {
+    public void ChangeSkyBox(BiomeType type){
+        SkyBoxSettings sky = skySettingsFactory.GetSkyBoxOfType(type);
         StartCoroutine(ChangeTopColor(sky.TopColor, 3f));
         StartCoroutine(ChangeBotColor(sky.BotColor, 3f));
         ChangeDayNightCycle(sky.IsDay);
         ChangeStarVisibility(sky.IsStarsVisible);
     }
-
+    public void ChangeSkyBox(SkyBoxSettings sky){
+        StartCoroutine(ChangeTopColor(sky.TopColor, 3f));
+        StartCoroutine(ChangeBotColor(sky.BotColor, 3f));
+        ChangeDayNightCycle(sky.IsDay);
+        ChangeStarVisibility(sky.IsStarsVisible);
+    }
     private void ChangeDayNightCycle(bool isDay){
         if (isDay){
             StartCoroutine(ChangePower(power, 0.0f, 3f));

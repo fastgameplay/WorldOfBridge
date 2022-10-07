@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerStateManager))]
 public class PlayerCollision : MonoBehaviour{
     [SerializeField] private CubeProxy cubeProxy;
+    [SerializeField] private SkyBoxManager climateController;
     private PlayerStateManager stateManager;
     private PlayerHight playerHight;
 
@@ -36,14 +37,16 @@ public class PlayerCollision : MonoBehaviour{
                 playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth/2;
             
                 stateManager.ChangeState(PlayerStateEnum.BRIDGE);
-            
+                road.
                 Destroy(other.gameObject);
             }
             return;
         }
         if(other.tag == "Bridge"){
             stateManager.ChangeState(PlayerStateEnum.DEATH);
-            
+            climateController.StopChanges();
+
+
         }
         if(other.tag == "Road"){
             stateManager.ChangeState(PlayerStateEnum.IDLE);
