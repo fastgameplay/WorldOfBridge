@@ -41,5 +41,8 @@ public class BridgePlacement : MonoBehaviour{
             yield return new WaitForSeconds(0.01f);
             BridgePercent = i;
         }
+        if(percent == 100){
+            Destroy(GetComponent<BoxCollider>());
+        }
     }
 }

@@ -24,7 +24,6 @@ public class RoadBuilder : MonoBehaviour
                 break;
         }
         obj.transform.parent = _parent;
-        obj.AddComponent<Road>().AddStruct(_road);
         return obj;
     }
     private GameObject WithBiome(RoadStruct road, GameObject RoadPrefab, BiomeScriptable Biome){
@@ -32,6 +31,7 @@ public class RoadBuilder : MonoBehaviour
         holder.transform.position = road.Position;
         holder.transform.rotation = standartQuaternion;
         GameObject RoadObj = Instantiate(RoadPrefab, Vector3.zero, new Quaternion(0,0,0,0), holder.transform);
+        RoadObj.AddComponent<Road>().AddStruct(road);
         RoadObj.transform.localPosition = Vector3.zero;
         RoadObj.transform.localScale = road.Scale;
         RoadObj.GetComponent<MeshRenderer>().material.color = Biome.GroundColor;
@@ -44,6 +44,7 @@ public class RoadBuilder : MonoBehaviour
     {
         GameObject obj = Instantiate(RoadPrefab, road.Position, standartQuaternion);
         obj.transform.localScale = road.Scale;
+        obj.AddComponent<Road>().AddStruct(road);
         return obj;
     }
 

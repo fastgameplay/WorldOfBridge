@@ -30,14 +30,13 @@ public class PlayerCollision : MonoBehaviour{
                     cubeProxy.Quantity = 0;
                 }
                 else{
-                    bridgeHolder.AddComponent<BridgeHolder>().BuildBridge(road,transform.localRotation,20);
+                    bridgeHolder.AddComponent<BridgeHolder>().BuildBridge(road,transform.localRotation,100);
                     cubeProxy.Quantity -= 20;
                 }
             
                 playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth/2;
-            
+                climateController.ChangeSkyBox(road.Biome);
                 stateManager.ChangeState(PlayerStateEnum.BRIDGE);
-                road.
                 Destroy(other.gameObject);
             }
             return;
@@ -50,9 +49,11 @@ public class PlayerCollision : MonoBehaviour{
         }
         if(other.tag == "Road"){
             stateManager.ChangeState(PlayerStateEnum.IDLE);
-            Destroy(other);
+
+
             return;
         }
+        Destroy(other);
     }
 
     private GameObject CreateEmptyGameObject(Transform parent){

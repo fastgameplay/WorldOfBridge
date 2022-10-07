@@ -9,13 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27fb6b8f329162f4e88367faa4d32ba1, type: 3}
-  m_Name: Forest
+  m_Script: {fileID: 11500000, guid: 68ce6c64ef7dfc24284f03f28ae5ff73, type: 3}
+  m_Name: RockForestNightNoStarst
   m_EditorClassIdentifier: 
-  Type: 1
-  GroundColor: {r: 0, g: 1, b: 0.07254028, a: 1}
-  Obsticles:
-  - {fileID: 11400000, guid: b87080bb635d3d74ea4f610373ed32f4, type: 2}
-  Coin: {fileID: 0}
-  Offset: 5
-  ObsticleSize: 2.5
+  BiomeType: 2
+  TopColor: {r: 1, g: 1, b: 1, a: 1}
+  BotColor: {r: 0, g: 0, b: 0, a: 1}
+  IsDay: 0
+  IsStarsVisible: 0

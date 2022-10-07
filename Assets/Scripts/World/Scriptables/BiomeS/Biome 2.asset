@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Biome 2
   m_EditorClassIdentifier: 
   Type: 0
-  GroundColor: {r: 0, g: 0.080141544, b: 1, a: 1}
+  GroundColor: {r: 1, g: 0.6761894, b: 0, a: 1}
   Obsticles:
   - {fileID: 11400000, guid: 97e2134413e3bf94487d03338e771c96, type: 2}
   - {fileID: 11400000, guid: b87080bb635d3d74ea4f610373ed32f4, type: 2}

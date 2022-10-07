@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000015031181, g: 0.76482534, b: 1.0000137, a: 1}
+  m_IndirectSpecularColor: {r: 0.9248165, g: 1.0000137, b: 0.20875552, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &41369825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 41369828}
+  - component: {fileID: 41369827}
+  - component: {fileID: 41369826}
+  m_Layer: 0
+  m_Name: SkyBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &41369826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41369825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52205436fff3ef942b491ab834caf871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyboxMaterial: {fileID: 2100000, guid: d09bb8eaf24f083468525f4118aabc4f, type: 2}
+--- !u!114 &41369827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41369825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2103c7e463a28094fa714049018dcda4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkyBoxSettings:
+  - {fileID: 11400000, guid: 61dc771bd2bad9e478a14399683ca4ab, type: 2}
+  - {fileID: 11400000, guid: a6411995f2c4691488f2e24d10ebbf40, type: 2}
+  - {fileID: 11400000, guid: 1082cb31d1065b941858fc5cfed59b49, type: 2}
+  - {fileID: 11400000, guid: 464637af3584ee3439202d55ede76f81, type: 2}
+  - {fileID: 11400000, guid: 56801c31426bd0049ae890be3b7d0d1b, type: 2}
+  - {fileID: 11400000, guid: 2b1f94191a418e041822a7600a4659ce, type: 2}
+  - {fileID: 11400000, guid: 61f38059794b6794298a283947f8427b, type: 2}
+  - {fileID: 11400000, guid: 365f43ffe809ec4488d5d92569b88dec, type: 2}
+  - {fileID: 11400000, guid: 8e8d693987016d54bb491670de3e630a, type: 2}
+--- !u!4 &41369828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41369825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.712191, y: 3.6142323, z: -20.529928}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +410,7 @@ MonoBehaviour:
   gapPref: {fileID: 2802788690700216841, guid: 8eca05beb7f22794b9cbcd364753f999, type: 3}
   finishPref: {fileID: 7602259803569664690, guid: 20a5b73fe09cc7344b0845a57cbdc1d2,
     type: 3}
-  worldSize: 2
+  worldSize: 4
   worldMap: []
 --- !u!114 &1440858806
 MonoBehaviour:
@@ -429,6 +497,11 @@ PrefabInstance:
       propertyPath: m_ClearFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6109978446122982449, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: climateController
+      value: 
+      objectReference: {fileID: 41369826}
     - target: {fileID: 6109978446122982456, guid: 5695e6eda0c9b504baca7a56fb5474e3,
         type: 3}
       propertyPath: m_Name
@@ -488,6 +561,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109978446655210945, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: Level
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5695e6eda0c9b504baca7a56fb5474e3, type: 3}

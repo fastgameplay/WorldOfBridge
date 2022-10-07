@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ce6c64ef7dfc24284f03f28ae5ff73, type: 3}
   m_Name: ForestNight
   m_EditorClassIdentifier: 
+  BiomeType: 1
   TopColor: {r: 0, g: 1, b: 1, a: 1}
   BotColor: {r: 0, g: 0, b: 1, a: 1}
   IsDay: 0

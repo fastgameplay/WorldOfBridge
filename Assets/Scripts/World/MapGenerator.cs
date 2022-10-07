@@ -39,6 +39,7 @@ public class MapGenerator{
             if (roadMap[i].Type == RoadType.Gap)
             {
                 roadMap[i].NextWidth = roadMap[i + 1].Width;
+                roadMap[i].Biome = roadMap[i + 1].Biome;
                 roadMap[i].Width = roadMap[i - 1].Width; //Scale to previous road part
                 continue;
             }

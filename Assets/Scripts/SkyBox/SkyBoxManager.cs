@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkyBoxManager : MonoBehaviour{
     [SerializeField] private Material skyboxMaterial;
     private Color topColor { get { return skyboxMaterial.GetColor("_TopColor"); } set { skyboxMaterial.SetColor("_TopColor", value); } }
-    private Color botColor { get { return skyboxMaterial.GetColor("_BotColor"); } set { skyboxMaterial.SetColor("_BotColor", value); } }
+    private Color botColor { get { return skyboxMaterial.GetColor("_BottomColor"); } set { skyboxMaterial.SetColor("_BottomColor", value); } }
     private float power { get { return skyboxMaterial.GetFloat("_power"); } set { skyboxMaterial.SetFloat("_power", value); } }
     private float starVisibility { get { return skyboxMaterial.GetFloat("_StarVisibility"); } set { skyboxMaterial.SetFloat("_StarVisibility", value); } }
 
