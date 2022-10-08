@@ -22,7 +22,7 @@ public class BiomeScriptable : ScriptableObject {
         scale /= 2;
         float i = startPos;
         while( i < endPos) {
-            Obsticles[0].Spawn(i, scale.x, parent, ObsticleSize);
+            Obsticles[Random.Range(0,Obsticles.Length)].Spawn(i, scale.x, parent, ObsticleSize);
             i += ObsticleSize*2;
         }
 

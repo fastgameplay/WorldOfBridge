@@ -14,7 +14,14 @@ public class PlayerCollision : MonoBehaviour{
         playerHight = GetComponent<PlayerHight>();
     }
     private void OnTriggerEnter(Collider other){
-        if(other.tag == "Gap"){
+        if (other.tag == "Enemy"){
+
+        }
+        if (other.tag == "PickUpCube"){
+            cubeProxy.Quantity += other.GetComponent<CubeInfo>().Count;
+            Destroy(other.gameObject);
+        }
+        if (other.tag == "Gap"){
             if(other.transform.childCount == 0){
                 if(cubeProxy.Quantity == 0){
                     stateManager.ChangeState(PlayerStateEnum.DEATH);

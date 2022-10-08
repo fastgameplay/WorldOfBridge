@@ -5,9 +5,11 @@ using UnityEngine;
 public class ObsticleScriptable : ScriptableObject {
     public GameObject[] Prefabs;
     public int Quantity;
-    
+
+    public float AdditionalHight;
     [Range(0,2)]
     public float RotationSpeed;
+
 
     public bool IsMovable;
     public bool IsFlat;
@@ -17,7 +19,7 @@ public class ObsticleScriptable : ScriptableObject {
         for (int i = 0; i < Quantity; i++){
             Instantiate(
                 RandomPref(), //prefab
-                CalculateObsticle.Position(i * split, distance, obsticleSize, IsFlat), //Position
+                CalculateObsticle.Position(i * split, distance + AdditionalHight, obsticleSize, IsFlat), //Position
                 Quaternion.Euler(new Vector3(0, 0, i * split - 90)), //rotation
                 holder.transform); ; //parent
         }

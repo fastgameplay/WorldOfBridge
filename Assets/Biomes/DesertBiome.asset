@@ -16,6 +16,10 @@ MonoBehaviour:
   GroundColor: {r: 1, g: 0.8430189, b: 0.23018867, a: 1}
   Obsticles:
   - {fileID: 11400000, guid: afbdb91856ce24a489db7e8593fd8616, type: 2}
+  - {fileID: 11400000, guid: 3fc73ba3d9d2ed944beab3f174dff330, type: 2}
+  - {fileID: 11400000, guid: afbdb91856ce24a489db7e8593fd8616, type: 2}
+  - {fileID: 11400000, guid: afbdb91856ce24a489db7e8593fd8616, type: 2}
+  - {fileID: 11400000, guid: afbdb91856ce24a489db7e8593fd8616, type: 2}
   Coin: {fileID: 0}
-  Offset: 0.5
-  ObsticleSize: 1
+  Offset: 1
+  ObsticleSize: 2
