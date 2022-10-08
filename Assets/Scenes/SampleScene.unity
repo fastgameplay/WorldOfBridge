@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.9248165, g: 1.0000137, b: 0.20875552, a: 1}
+  m_IndirectSpecularColor: {r: 0.35077542, g: 0.2502183, b: 0.64894253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -425,9 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   biomes:
-  - {fileID: 11400000, guid: 0b48a0b462679e949abc5646592f8ce7, type: 2}
-  - {fileID: 11400000, guid: b97239cc7e7a8324684471c9ec5faab9, type: 2}
-  - {fileID: 11400000, guid: ef30a284083350a4198065fc97b481ca, type: 2}
+  - {fileID: 11400000, guid: 45396e9f385e4944080ed4a6eddcbf0e, type: 2}
 --- !u!1 &1565314992
 GameObject:
   m_ObjectHideFlags: 0
