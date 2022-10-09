@@ -9,6 +9,7 @@ public class PlayerRunState : PlayerBaseState
     public override void EnterState()
     {
         ctx.PlayerSpeed.TargetSpeedPercent = 1f;
+        ctx.PlayerAnimation.Speed = 1f;
     }
     public override void UpdateState(){
         ctx.PlayerRotation.HorizontalInput = ctx.InputManager.HorizontalNormilized;

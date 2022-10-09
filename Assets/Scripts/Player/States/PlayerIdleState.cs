@@ -8,6 +8,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void EnterState(){
         ctx.PlayerSpeed.TargetSpeedPercent = 0;
+        ctx.PlayerAnimation.Speed = 0f;
     }
     public override void UpdateState(){
         if (ctx.InputManager.Hold){

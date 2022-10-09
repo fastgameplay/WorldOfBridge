@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.35077542, g: 0.2502183, b: 0.64894253, a: 1}
+  m_IndirectSpecularColor: {r: 0.35718074, g: 0.34152374, b: 0.6553456, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -483,6 +483,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b76dea929f791a428cde47dc9c62749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1706192789 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4384613115930951656, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6109978446181033259}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1706192790 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7654266352045712786, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6109978446181033259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6109978446181033259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -490,6 +502,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4384613115930951656, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384613115930951656, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384613115930951656, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384613115930951656, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384613115930951656, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6109978445920186594, guid: 5695e6eda0c9b504baca7a56fb5474e3,
         type: 3}
       propertyPath: m_ClearFlags
@@ -500,6 +537,11 @@ PrefabInstance:
       propertyPath: climateController
       value: 
       objectReference: {fileID: 41369826}
+    - target: {fileID: 6109978446122982451, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: PlayerModelTransform
+      value: 
+      objectReference: {fileID: 1706192789}
     - target: {fileID: 6109978446122982456, guid: 5695e6eda0c9b504baca7a56fb5474e3,
         type: 3}
       propertyPath: m_Name
@@ -565,5 +607,16 @@ PrefabInstance:
       propertyPath: Level
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7654266352045712786, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1c270bd02dce59f41834c219db0226ca, type: 2}
+    - target: {fileID: 7869572665870591067, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1706192790}
+    m_RemovedComponents:
+    - {fileID: 6109978446122982461, guid: 5695e6eda0c9b504baca7a56fb5474e3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5695e6eda0c9b504baca7a56fb5474e3, type: 3}

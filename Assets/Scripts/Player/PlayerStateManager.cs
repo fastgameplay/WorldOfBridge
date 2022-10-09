@@ -20,7 +20,7 @@ public class PlayerStateManager : MonoBehaviour{
     public PlayerHight PlayerHight { get { return playerHight; } }
     private PlayerHight playerHight;
 
-    //TODO: Implement Player Animation System
+    public PlayerAnimation PlayerAnimation { get { return playerAnimation; } }
     private PlayerAnimation playerAnimation;
 
 
@@ -41,6 +41,8 @@ public class PlayerStateManager : MonoBehaviour{
 
     private void Update(){
         state.UpdateState();
+
+        
     }
 
     public void ChangeState(PlayerStateEnum _stateEnum){

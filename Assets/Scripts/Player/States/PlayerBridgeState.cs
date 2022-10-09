@@ -8,6 +8,7 @@ public class PlayerBridgeState : PlayerBaseState
 
     public override void EnterState(){
         ctx.PlayerSpeed.TargetSpeedPercent = 0.8f;
+        ctx.PlayerAnimation.Speed = 0.8f;
         ctx.PlayerRotation.HorizontalInput = 0;
     }
     public override void UpdateState()

@@ -10,7 +10,7 @@ public class BridgeHolder : MonoBehaviour{
         transform.rotation = _bridgeRotation;
         BoxCollider col = bridge.GetComponent<BoxCollider>();
         col.isTrigger = true;
-        col.center = new Vector3(0, 0, 0.8f);
+        col.center = new Vector3(0, 0, 0.9f);
         col.size = new Vector3(5, 5, 0.63f);
         BridgePlacement bp = bridge.AddComponent<BridgePlacement>();
         bp.MaxScale = new Vector3(1, 1, _road.Length * 2);
