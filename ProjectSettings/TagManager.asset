@@ -8,6 +8,8 @@ TagManager:
   - Road
   - Bridge
   - PickUpCube
+  - Enemy
+  - Crystall
   layers:
   - Default
   - TransparentFX
