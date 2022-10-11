@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700d476d28b76994eb6596e3509bf8e6, type: 3}
+  m_Name: SnowTree
+  m_EditorClassIdentifier: 
+  Prefabs:
+  - {fileID: 1999021533135872878, guid: 7e155251ae88e9b4ea16e31b05b87c96, type: 3}
+  - {fileID: 4735549013346004167, guid: 3594053eed5ce224a8d8d0d7f67dc571, type: 3}
+  - {fileID: 5636228501507740507, guid: bbedb58fe5e953948a0c726b12bd4736, type: 3}
+  - {fileID: 9112279469343158466, guid: aabb7bec587172f41a91822b69bd2393, type: 3}
+  - {fileID: 7357883807016408961, guid: 7d7c8b937fa0f1e42899a775d42b67fb, type: 3}
+  Quantity: 4
+  AdditionalHight: 0.21
+  RotationSpeed: 0
+  IsMovable: 0
+  IsFlat: 0
