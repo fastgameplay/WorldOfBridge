@@ -14,8 +14,8 @@ public class PickupCubeRandomizer : MonoBehaviour{
         cubeText.SetLevelState(false);
         cubeText.SetMaxState(false);
 
-        cubeText.SetText(cubeCount.ToString(), Color.green);
-        transform.GetChild(0).GetComponent<MeshRenderer>().material.color = Random.ColorHSV();
+        cubeText.SetText(cubeCount.ToString(), Color.cyan);
+        transform.GetChild(0).GetComponent<MeshRenderer>().material.color = Color.magenta;
         Destroy(this);
     }
 }
