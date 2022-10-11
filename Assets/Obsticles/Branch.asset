@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700d476d28b76994eb6596e3509bf8e6, type: 3}
+  m_Name: Branch
+  m_EditorClassIdentifier: 
+  Prefabs:
+  - {fileID: 919132149155446097, guid: b0ea4b28c46bee1409eae5a3d153c2a6, type: 3}
+  - {fileID: 919132149155446097, guid: 867cece4d49f0254585ea2277d028c1a, type: 3}
+  - {fileID: 919132149155446097, guid: a80b99e76fea82149af8d0a3de0495fa, type: 3}
+  - {fileID: 919132149155446097, guid: 4af4ada1af179d7468f070ccd6c76cab, type: 3}
+  - {fileID: 919132149155446097, guid: 2d69404a331a4d746b93dd19f3b9c794, type: 3}
+  - {fileID: 919132149155446097, guid: 8b9e61cee69ce8c4fbfd6ddc3d3267c1, type: 3}
+  Quantity: 4
+  AdditionalHight: 0.21
+  RotationSpeed: 0
+  IsMovable: 0
+  IsFlat: 0
