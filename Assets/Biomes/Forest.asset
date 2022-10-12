@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27fb6b8f329162f4e88367faa4d32ba1, type: 3}
+  m_Name: Forest
+  m_EditorClassIdentifier: 
+  Type: 1
+  GroundColor: {r: 0.2648263, g: 1, b: 0, a: 1}
+  Obsticles:
+  - {fileID: 11400000, guid: 937b632986772ab438f6cc52c3b74dd7, type: 2}
+  - {fileID: 11400000, guid: 937b632986772ab438f6cc52c3b74dd7, type: 2}
+  - {fileID: 11400000, guid: 8528c85abe6491547a1125839bc38b16, type: 2}
+  - {fileID: 11400000, guid: 3fc73ba3d9d2ed944beab3f174dff330, type: 2}
+  - {fileID: 11400000, guid: 937b632986772ab438f6cc52c3b74dd7, type: 2}
+  - {fileID: 11400000, guid: 937b632986772ab438f6cc52c3b74dd7, type: 2}
+  Coin: {fileID: 0}
+  Offset: 1
+  ObsticleSize: 2

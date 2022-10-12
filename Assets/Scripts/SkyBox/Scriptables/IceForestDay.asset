@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68ce6c64ef7dfc24284f03f28ae5ff73, type: 3}
-  m_Name: RockForestNightNoStarst
+  m_Name: IceForestDay
   m_EditorClassIdentifier: 
-  BiomeType: 2
-  TopColor: {r: 1, g: 1, b: 1, a: 1}
-  BotColor: {r: 0, g: 0, b: 0, a: 1}
-  IsDay: 0
+  BiomeType: 3
+  TopColor: {r: 0.71132076, g: 1, b: 0.9408716, a: 1}
+  BotColor: {r: 0, g: 0.35823494, b: 0.4056604, a: 1}
+  IsDay: 1
   IsStarsVisible: 0
