@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.9248165, g: 1.0000137, b: 0.20875552, a: 1}
+  m_IndirectSpecularColor: {r: 0.35718074, g: 0.34152374, b: 0.6553456, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -175,7 +175,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2b1f94191a418e041822a7600a4659ce, type: 2}
   - {fileID: 11400000, guid: 61f38059794b6794298a283947f8427b, type: 2}
   - {fileID: 11400000, guid: 365f43ffe809ec4488d5d92569b88dec, type: 2}
+  - {fileID: 11400000, guid: a771f4d0660f3c54cba3d968d92be406, type: 2}
   - {fileID: 11400000, guid: 8e8d693987016d54bb491670de3e630a, type: 2}
+  - {fileID: 11400000, guid: ab3149cb5cbeacd4694959198ca30c80, type: 2}
 --- !u!4 &41369828
 Transform:
   m_ObjectHideFlags: 0
@@ -401,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldSettings: {fileID: 11400000, guid: 41bd8b4f90452d142b9981b4f7d10d3f, type: 2}
-  offset: 1
+  offset: 3
   obsticleWidth: 2
   startPref: {fileID: 7602259803569664690, guid: 20a5b73fe09cc7344b0845a57cbdc1d2,
     type: 3}
@@ -410,7 +412,7 @@ MonoBehaviour:
   gapPref: {fileID: 2802788690700216841, guid: 8eca05beb7f22794b9cbcd364753f999, type: 3}
   finishPref: {fileID: 7602259803569664690, guid: 20a5b73fe09cc7344b0845a57cbdc1d2,
     type: 3}
-  worldSize: 4
+  worldSize: 5
   worldMap: []
 --- !u!114 &1440858806
 MonoBehaviour:
@@ -542,11 +544,21 @@ PrefabInstance:
       propertyPath: m_ClearFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6109978446122982448, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6109978446122982449, guid: 5695e6eda0c9b504baca7a56fb5474e3,
         type: 3}
       propertyPath: climateController
       value: 
       objectReference: {fileID: 41369826}
+    - target: {fileID: 6109978446122982451, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: hight
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6109978446122982451, guid: 5695e6eda0c9b504baca7a56fb5474e3,
         type: 3}
       propertyPath: PlayerModelTransform
@@ -611,6 +623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109978446454314455, guid: 5695e6eda0c9b504baca7a56fb5474e3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6109978446655210945, guid: 5695e6eda0c9b504baca7a56fb5474e3,
         type: 3}

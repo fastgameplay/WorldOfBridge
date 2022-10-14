@@ -34,11 +34,11 @@ public class PlayerCollision : MonoBehaviour{
                 bridgeHolder.transform.position = road.Position;
                 if(cubeProxy.Quantity < 20){
                     bridgeHolder.AddComponent<BridgeHolder>().BuildBridge(road, transform.localRotation, cubeProxy.Quantity * 5);
-                    cubeProxy.Quantity = 0;
+                    cubeProxy.DecreaceBy(cubeProxy.Quantity);
                 }
                 else{
                     bridgeHolder.AddComponent<BridgeHolder>().BuildBridge(road,transform.localRotation,100);
-                    cubeProxy.Quantity -= 20;
+                    cubeProxy.DecreaceBy(20);
                 }
             
                 playerHight.TargetHight = other.gameObject.GetComponent<Road>().NextWidth/2;

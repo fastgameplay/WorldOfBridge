@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 1446779298663330361, guid: e4ba5c2fcf36b3240b0435734b113509, type: 3}
   - {fileID: 4851701457433329644, guid: 57a02b0f9f4f12046850cf1c6e6adae0, type: 3}
   - {fileID: 6614241476771669276, guid: b26eb8fd98c3d8e43ab3d470a2549acf, type: 3}
-  Quantity: 4
+  Quantity: 16
   AdditionalHight: 0.21
   RotationSpeed: 0
   IsMovable: 0

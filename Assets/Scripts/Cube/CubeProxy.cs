@@ -77,4 +77,17 @@ public class CubeProxy : MonoBehaviour
         }
 
     }
+
+    public void DecreaceBy(int _amount){
+        StartCoroutine(DecreaseCounter(_amount));
+    }
+
+    private IEnumerator DecreaseCounter(int _quantity)
+    {
+        for (int i = 1; i <= _quantity; i++)
+        {
+            yield return new WaitForSeconds(0.01f);
+            Quantity--;
+        }
+    }
 }

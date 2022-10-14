@@ -11,20 +11,24 @@ public class RoadBuilder : MonoBehaviour
         standartQuaternion = Quaternion.Euler(new Vector3(90, 0, 0));
     }
     
-    public GameObject Build(RoadStruct _road,Transform _parent, GameObject _roadPrefab)
-    {
+    public GameObject Build(RoadStruct _road,Transform _parent, GameObject _roadPrefab){
+        
         GameObject obj;
         switch (_road.Type)
         {
             case RoadType.Road:
                 obj = WithBiome(_road, _roadPrefab, biomeFactory.GetBiome(_road.Biome));
                 break;
+            case RoadType.Start:
+                obj = WithoutBiome(_road, _roadPrefab);
+                obj.GetComponent<MeshRenderer>().material.color = biomeFactory.GetBiome(_road.Biome).GroundColor;
+                break;
             default:
                 obj = WithoutBiome(_road,_roadPrefab);
                 break;
         }
         obj.transform.parent = _parent;
-        return obj;
+         return obj;
     }
     private GameObject WithBiome(RoadStruct road, GameObject RoadPrefab, BiomeScriptable Biome){
         GameObject holder = new GameObject("RoadHolder");
