@@ -13,7 +13,10 @@ public class PlayerHight : MonoBehaviour{
             targetHight = value + HightOffset;
             isHightChange = true;
         }
-
+        get
+        {
+            return targetHight;
+        }
     }
     private float hight
     {
@@ -46,5 +49,9 @@ public class PlayerHight : MonoBehaviour{
 
         hight = Mathf.MoveTowards(hight, targetHight, HightChangeSpeed);
 
+    }
+
+    public void StopMotion(){
+        isHightChange = false;
     }
 }

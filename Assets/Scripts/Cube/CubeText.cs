@@ -22,7 +22,6 @@ public class CubeText : MonoBehaviour
     }
     public void SetText(string _text, Color _color){
         for (int i = 0; i < cubeSidesLenght; i++){
-            Debug.Log("[" + Time.time + "], " + "Text :" + _text);
             CubeSides[i].SetText(_text, _color);
         }
     }

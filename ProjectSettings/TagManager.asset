@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Gap
   - Road
+  - Bridge
+  - PickUpCube
+  - Enemy
+  - Crystall
   layers:
   - Default
   - TransparentFX
