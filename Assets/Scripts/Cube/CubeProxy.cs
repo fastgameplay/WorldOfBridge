@@ -64,20 +64,6 @@ public class CubeProxy : MonoBehaviour
     }
 
 
-    private void Update()
-    {
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Quantity += 1;
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Quantity -= 1;
-        }
-
-    }
-
     public void DecreaceBy(int _amount){
         StartCoroutine(DecreaseCounter(_amount));
     }

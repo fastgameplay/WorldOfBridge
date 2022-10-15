@@ -17,15 +17,16 @@ public class WorldBuilder : MonoBehaviour
     [SerializeField] private GameObject finishPref;
     [SerializeField] private int worldSize;
 
+    [SerializeField] private RoadStruct[] worldMap;
+   
     private BiomeFactory biomeFactory;
 
     private Dictionary<RoadType, GameObject> roadDictionary = new Dictionary<RoadType, GameObject>();
     //Map
     private MapGenerator mapGenerator;
     private RoadBuilder roadBuilder;
-    [SerializeField] private RoadStruct[] worldMap;
-    
 
+    private GameObject[] allObjects;
 
 
     private void Start()
@@ -45,11 +46,15 @@ public class WorldBuilder : MonoBehaviour
 
         worldMap = mapGenerator.GenerateMap(worldSize);
 
-        for (int i = 0; i < worldMap.Length; i++)
-        {
-            roadBuilder.Build(worldMap[i], transform, roadDictionary[ worldMap[i].Type]);
-        }
+        List<GameObject> allObstList = new List<GameObject>();
 
+        for (int i = 0; i < worldMap.Length; i++){
+              allObstList.AddRange(roadBuilder.Build(worldMap[i], transform, roadDictionary[ worldMap[i].Type]));
+        }
+        allObjects = allObstList.ToArray();
+        Debug.Log("BatchingStarted Objects on scene:" + allObjects.Length );
+        StaticBatchingUtility.Combine(allObjects, gameObject);
+        Debug.Log("Batching Ended");    
     }
 
 }
