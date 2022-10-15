@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7878947467520085307
 Transform:
@@ -62,9 +62,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -4006148316881293267, guid: f3c942eb51cf0e8459c3caf4af7a5744, type: 3}
-  - {fileID: 5239461525989321243, guid: f3c942eb51cf0e8459c3caf4af7a5744, type: 3}
-  - {fileID: -2937144876390972580, guid: f3c942eb51cf0e8459c3caf4af7a5744, type: 3}
+  - {fileID: 2100000, guid: 282cc8170477b38478c9840c27fa89e7, type: 2}
+  - {fileID: 2100000, guid: eacad537965330c43b04dee0cec1f4a6, type: 2}
+  - {fileID: 2100000, guid: 50322e09d8e023a40b26452b9e205d4e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
