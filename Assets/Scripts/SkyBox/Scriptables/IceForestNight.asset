@@ -15,5 +15,5 @@ MonoBehaviour:
   BiomeType: 3
   TopColor: {r: 0.71132076, g: 1, b: 0.9408716, a: 1}
   BotColor: {r: 0, g: 0.35823494, b: 0.4056604, a: 1}
-  IsDay: 1
-  IsStarsVisible: 0
+  IsDay: 0
+  IsStarsVisible: 1

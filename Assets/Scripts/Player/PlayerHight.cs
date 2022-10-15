@@ -13,7 +13,10 @@ public class PlayerHight : MonoBehaviour{
             targetHight = value + HightOffset;
             isHightChange = true;
         }
-
+        get
+        {
+            return targetHight;
+        }
     }
     private float hight
     {

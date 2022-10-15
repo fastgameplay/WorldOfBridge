@@ -9,7 +9,7 @@ public class PlayerDeathState : PlayerBaseState
     {
         ctx.PlayerAnimation.Speed = 0f;
         ctx.PlayerAnimation.Sit();
-        ctx.PlayerHight.TargetHight = 2.80f - 0.5f;//HARDCODED
+        ctx.PlayerHight.TargetHight -= 0.5f;//HARDCODED
         ctx.PlayerSpeed.TargetSpeedPercent = 0f;
     }
     public override void UpdateState()
